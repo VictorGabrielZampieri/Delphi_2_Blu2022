@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/06 20:04:05.000.815,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/06 20:06:39.000.685,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmCalculadora.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/06 20:06:39.000.685,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmCalculadora.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/09/06 21:34:21.000.895,C:\Users\vgzampieri\Desktop\Exercicio3\UfrmCalculadora.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmCalculadora.pas</Transaction>
+    <Transaction>2022/09/06 21:34:21.000.895,C:\Users\vgzampieri\Desktop\Exercicio3\UfrmCalculadora.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmCalculadora.dfm</Transaction>
+    <Transaction>2022/09/06 21:50:15.000.854,C:\Users\vgzampieri\Desktop\Exercicio3\Project1.dproj=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

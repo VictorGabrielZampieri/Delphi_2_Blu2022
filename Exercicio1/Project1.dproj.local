@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/05 21:31:12.000.071,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/05 21:37:12.000.224,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2022/09/05 21:38:10.000.045,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UAnimal.pas</Transaction>
+    <Transaction>2022/09/05 21:39:41.000.298,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UFrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/05 21:39:41.000.298,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UFrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/05 21:40:06.000.089,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UFrmPrincipal.dfm=C:\Users\vgzampieri\Desktop\Exercicio1\UFrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/05 21:40:06.000.089,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UFrmPrincipal.pas=C:\Users\vgzampieri\Desktop\Exercicio1\UFrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/05 21:40:31.000.682,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UAnimal.pas=C:\Users\vgzampieri\Desktop\Exercicio1\UAnimal.pas</Transaction>
+    <Transaction>2022/09/05 21:44:15.000.483,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/05 21:44:35.000.971,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\USecoes.pas</Transaction>
+    <Transaction>2022/09/05 21:44:45.000.051,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\USecoes.pas=C:\Users\vgzampieri\Desktop\Exercicio1\USecoes.pas</Transaction>
+    <Transaction>2022/09/05 21:50:17.000.696,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\vgzampieri\Desktop\Nova pasta\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

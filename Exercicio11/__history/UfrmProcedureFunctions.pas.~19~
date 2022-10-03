@@ -1,0 +1,170 @@
+unit UfrmProcedureFunctions;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, DateUtils;
+
+type
+  TfrmProcedureFunctions = class(TForm)
+    btnProcedure: TButton;
+    btnFunction: TButton;
+    btnParametroeReferencia: TButton;
+    btnParametroConstante: TButton;
+    btnArrayAberto: TButton;
+    btnArrayAbertoVariante: TButton;
+    btnFormat: TButton;
+    Button1: TButton;
+    procedure btnProcedureClick(Sender: TObject);
+    procedure btnFunctionClick(Sender: TObject);
+    procedure btnParametroeReferenciaClick(Sender: TObject);
+    procedure btnParametroConstanteClick(Sender: TObject);
+    procedure btnArrayAbertoVarianteClick(Sender: TObject);
+    procedure btnFormatClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProcedureFunctions: TfrmProcedureFunctions;
+
+implementation
+
+{$R *.dfm}
+
+//Procedure e Function
+
+procedure OlaMundo;  //Isso é uma procedure
+begin
+  ShowMessage('Olá Mundo');
+end;
+
+function RetornarNomeSobreNome: String;   //Isso é uma function
+begin
+  Result  := 'Victor Gabriel Zampieri';
+end;
+
+procedure DoubleTheValue(var Value: Integer);  //Procedure com parametro por referencia(no caso altera o valor da var passada)
+begin
+  Value := Value *2;
+end;
+
+function DoubleTheValue2(const Value: Integer) :  Integer;   //Procedure com Parametro de referencia Constante
+begin
+  // Value :=  value * 2; //compiler erro
+  Result  :=  Value;
+end;
+
+function Sum(const A: Array of Integer):  Integer;   //Paramentros com Array Aberto
+var
+ I:  Integer;
+begin
+  Result := 0;
+
+  for I := Low (A) to High (A) do
+    Result  :=  Result  + A[I];
+end;
+
+procedure TfrmProcedureFunctions.btnArrayAbertoVarianteClick(Sender: TObject);
+var
+  xNum1:  Integer;
+  xNum2:  Double;
+begin
+  xNum1 :=  20;
+  xNum2 :=  1500.50;
+
+  ShowMessage(
+  Format('Total do caixa é de %d',  [xNum1]));
+
+  ShowMessage(
+  Format('Olá %s, money: %f',['Victor', xNum2]));
+end;
+
+procedure TfrmProcedureFunctions.btnFormatClick(Sender: TObject);
+var
+text  : String;
+begin
+    ShowMessage(Format('%s', ['Hello']));
+
+    ShowMessage(Format('String = %s', ['Hello']));
+    ShowMessage('');
+
+    ShowMessage(Format('Decimal          = %d', [-123]));
+    ShowMessage(Format('Exponent         = %e', [12345.678]));
+    ShowMessage(Format('Fixed            = %f', [12345.678]));
+    ShowMessage(Format('General          = %g', [12345.678]));
+    ShowMessage(Format('Number           = %n', [12345.678]));
+    ShowMessage(Format('Money            = %m', [12345.678]));
+    ShowMessage(Format('Pointer          = %p', [addr(text)]));
+    ShowMessage(Format('String           = %s', ['Eai']));
+    ShowMessage(Format('Usigened decimal = %u', [123]));
+    ShowMessage(Format('Hexadecimal      = %x', [140]));
+end;
+
+procedure TfrmProcedureFunctions.btnFunctionClick(Sender: TObject);
+begin
+var
+  xNomeSobreNome: String;
+  begin
+    xNomeSobreNome  := RetornarNomeSobrenome;
+    ShowMessage(xNomeSobreNome);
+  end;
+end;
+
+procedure TfrmProcedureFunctions.btnParametroConstanteClick(Sender: TObject);
+begin
+  var
+  x:  Integer;
+  begin
+    x := 10;
+    DoubleTheValue2(x);
+    ShowMessage(x.ToString);
+  end;
+end;
+
+procedure TfrmProcedureFunctions.btnParametroeReferenciaClick(Sender: TObject);
+begin
+var
+x:  Integer;
+begin
+  x :=  10;
+  DoubleTheValue(x);
+  ShowMessage(x.ToString);
+end;
+end;
+
+procedure TfrmProcedureFunctions.btnProcedureClick(Sender: TObject);
+begin
+    OlaMundo;
+end;
+
+procedure TfrmProcedureFunctions.Button1Click(Sender: TObject);
+var
+  myDate  : TDateTime;
+begin
+  myDate  :=  EncodeDateTime(2000, 5, 1, 2, 3, 4);
+
+  ShowMessage('               d/m/y = '+
+              FormatDateTime('d/m/y', myDate));
+
+  ShowMessage('                dd/mm/yy = ' +
+              FormatDateTime('dd/mm/yy', myDate));
+
+  ShowMessage('                ddd d of mmmm yyyy = ' +
+              FormatDateTime('dddd d of mmmm yyyy', myDate));
+
+  ShowMessage('                ddddd = ' +
+              FormatDateTime('ddddd', myDate));
+
+  ShowMessage('                dddddd = ' +
+              FormatDateTime('dddddd', myDate));
+
+  ShowMessage('                c = ' +
+              FormatDateTime('c', myDate));
+end;
+
+end.

@@ -1,0 +1,37 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    btnProcedure: TButton;
+    btnFunction: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+//Procedure e Function
+
+procedure OlaMundo;  //Isso é uma procedure
+begin
+  ShowMessage('Olá Mundo');
+end;
+
+function RetornarNomeSobrenome: String;   //Isso é uma function
+begin
+  Result  := 'Victor Gabriel Zampieri';
+end;
+end.

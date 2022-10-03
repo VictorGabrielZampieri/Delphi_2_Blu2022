@@ -1,0 +1,115 @@
+object frmProcedureFunctions: TfrmProcedureFunctions
+  Left = 0
+  Top = 0
+  Caption = 'frmProcedureFunctions'
+  ClientHeight = 281
+  ClientWidth = 418
+  Color = clSilver
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object btnProcedure: TButton
+    Left = 24
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Procedure'
+    TabOrder = 0
+    OnClick = btnProcedureClick
+  end
+  object btnFunction: TButton
+    Left = 192
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Function'
+    TabOrder = 1
+    OnClick = btnFunctionClick
+  end
+  object btnParametroeReferencia: TButton
+    Left = 24
+    Top = 72
+    Width = 137
+    Height = 25
+    Caption = 'Parametro de Referencia'
+    TabOrder = 2
+    OnClick = btnParametroeReferenciaClick
+  end
+  object btnParametroConstante: TButton
+    Left = 24
+    Top = 103
+    Width = 123
+    Height = 25
+    Caption = 'Parametro Constante'
+    TabOrder = 3
+    OnClick = btnParametroConstanteClick
+  end
+  object btnArrayAberto: TButton
+    Left = 192
+    Top = 72
+    Width = 91
+    Height = 25
+    Caption = 'Array Aberto'
+    TabOrder = 4
+    OnClick = btnArrayAbertoVarianteClick
+  end
+  object btnArrayAbertoVariante: TButton
+    Left = 192
+    Top = 103
+    Width = 145
+    Height = 25
+    Caption = 'Array Aberto Tipo Variante'
+    TabOrder = 5
+    OnClick = btnArrayAbertoVarianteClick
+  end
+  object btnFormat: TButton
+    Left = 24
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Format'
+    TabOrder = 6
+    OnClick = btnFormatClick
+  end
+  object btnDateFormatada: TButton
+    Left = 192
+    Top = 134
+    Width = 91
+    Height = 25
+    Caption = 'Data Formatada'
+    TabOrder = 7
+    OnClick = btnDateFormatadaClick
+  end
+  object btnSobrecarga: TButton
+    Left = 24
+    Top = 165
+    Width = 123
+    Height = 25
+    Caption = 'Sobrecarga de Funcoes'
+    TabOrder = 8
+    OnClick = btnSobrecargaClick
+  end
+  object btnParametroDefault: TButton
+    Left = 192
+    Top = 165
+    Width = 113
+    Height = 25
+    Caption = 'Parametro Default'
+    TabOrder = 9
+    OnClick = btnParametroDefaultClick
+  end
+  object btnDeclaracaoForward: TButton
+    Left = 24
+    Top = 196
+    Width = 123
+    Height = 25
+    Caption = 'Declaracao Forward'
+    TabOrder = 10
+    OnClick = btnDeclaracaoForwardClick
+  end
+end

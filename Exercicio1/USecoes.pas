@@ -1,0 +1,35 @@
+unit USecoes;
+
+interface
+
+uses       //Uses para a secao de interface
+  UAnimal;
+
+type      //Tipos definidos na unit
+  TResgistro = record
+   Id: Integer;
+   Data: TDate;
+   Hora: TTime;
+   Obse: String;
+ end;
+
+ TCachorro = class(TAnimal)
+   procedure MeuSomEh; override;
+ end;
+
+ var  //Declaracao de variaveis globais - Sempre escapar
+    vGloball: Integer;
+
+implementation
+
+uses  //Uses para a secao implementation
+    vcl.Dialogs;
+
+    { TCachorro }
+
+procedure TCachorro.MeuSomEh;
+begin
+  ShowMessage('Au Au!');
+end;
+
+end.
