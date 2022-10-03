@@ -1,0 +1,57 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TArrayIdades = Array of Integer;
+
+  TfrmPrincipal = class(TForm)
+    edtPessoas: TEdit;
+    Label1: TLabel;
+    btnVerificar: TButton;
+    mm_QuantidadePessoas: TMemo;
+  private
+    { Private declarations }
+    function  ArmazenarIdades : TArrayIdades;
+    procedure Exibir;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.ArmazenarIdades: TArrayIdades;
+var
+  xArrayIdades : TArrayIdades;
+  xQuantidadePessoas, I : Integer;
+begin
+  if not (TryStrToInt(edtPessoas.Text, xQuantidadePessoas)) then
+    raise Exception.Create('Informe um Valor Válido');
+
+    SetLength(xArrayIdades, xQuantidadePessoas);
+
+    for I := 0 to Length(xArrayIdades) do
+    begin
+       xArrayIdades[I] := StrToInt(inputBox('Idades' ,'Informe A Idade da ' + (I + 1).ToString + ' º Pessoa', ''));
+    end;
+
+
+end;
+
+procedure TfrmPrincipal.Exibir;
+begin
+
+end;
+
+end.

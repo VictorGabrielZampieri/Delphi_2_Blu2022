@@ -1,0 +1,64 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Carrango Velho'
+  ClientHeight = 280
+  ClientWidth = 433
+  Color = clSilver
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 184
+    Width = 84
+    Height = 18
+    Caption = 'Nota Fiscal'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 216
+    Width = 213
+    Height = 18
+    Caption = 'Valor do Carro C/ Desconto :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblVlrCarro: TLabel
+    Left = 243
+    Top = 216
+    Width = 10
+    Height = 18
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object btnIniciar: TButton
+    Left = 176
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'Iniciar'
+    TabOrder = 0
+    OnClick = btnIniciarClick
+  end
+end

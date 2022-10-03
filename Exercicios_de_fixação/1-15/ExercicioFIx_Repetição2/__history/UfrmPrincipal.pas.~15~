@@ -1,0 +1,151 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TEnumComando = (opFor, opWhile, opRepeat);
+
+  TfrmPrincipal = class(TForm)
+    edtN1: TEdit;
+    edtN2: TEdit;
+    Label1: TLabel;
+    rgComandos: TRadioGroup;
+    btnExecutar: TButton;
+    procedure btnExecutarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+function SomarPares(var xNumero1, xNumero2, xConta : Integer ): Integer;
+var
+  I : Integer;
+begin
+
+    for I := 0 to xNumero2 -1   do
+    begin
+
+         if (xNumero1 mod 2 = 0) then
+         begin
+         xConta := xConta  + xNumero1;
+
+         end;
+
+         xNumero1 := xNumero1 + 1;
+    end;
+    Result := xConta;
+end;
+
+ function SaqueDeCaixa(var xSaldo, xSangria, xConta : Integer) : Integer;
+ begin
+      while (xSaldo > 0) do
+    begin
+
+      xSaldo := xSaldo - xSangria;
+
+      xConta := xConta + 1;
+    end;
+    Result := xConta;
+
+ end;
+
+ function AtingirMeta(var xSaldo, xSomador, xConta : Integer) : Integer;
+var
+  xSangria : Integer;
+ begin
+    xSangria := 0;
+     repeat
+
+      xSangria := xSangria + xSomador;
+
+      xConta := xConta + 1;
+
+    until (xSangria >= xSaldo);
+
+    result := xConta;
+ end;
+
+
+procedure TfrmPrincipal.btnExecutarClick(Sender: TObject);
+var
+   xNumero1, xNumero2 , xConta, xResultado: Integer;
+
+begin
+   xNumero1 := StrToInt(edtN1.Text);
+   xNumero2 := StrToInt(edtN2.Text);
+   xConta   := 0;
+
+  case TEnumComando(rgComandos.ItemIndex) of
+
+   opFor:
+    begin
+
+    if (xNumero1 < xNumero2) then
+    begin
+          xResultado := SomarPares(xNumero1, xNumero2, xConta);
+          ShowMessage(xResultado.ToString);
+    end
+
+     else
+     ShowMessage('O valor informado é invalido comparado a base');
+    end;
+
+    opWhile:
+    begin
+
+    if (xNumero1 <= 0) or (xNumero1 < xNumero2) then
+    begin
+     ShowMessage('Saldo insuficiente para essa aplicação!');
+    end
+
+    else
+    begin
+
+      xResultado := SaqueDeCaixa(xNumero1, xNumero2, xConta);
+
+      if (xResultado > 1) then
+      begin
+      ShowMessage('Seu saldo acabará em ' + xResultado.ToString + ' dias');
+      end
+
+      else
+         ShowMessage('Seu saldo acabará em ' + xResultado.ToString + ' dia');
+    end;
+    end;
+
+    opRepeat:
+    begin
+
+    if (xNumero1 > 0) then
+    begin
+
+      xResultado := AtingirMeta(xNumero1,  xNumero2, xConta);
+      if (xResultado > 1) then
+      begin
+      ShowMessage('Você atingirá sua meta em ' + xResultado.ToString + ' dias');
+      end
+      else
+      begin
+         ShowMessage('Você atingirá sua meta em ' + xResultado.ToString + ' dia');
+      end;
+      end
+
+      else
+       ShowMessage('Valor inválido');
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,48 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMatrizProdutos = Array of Array of Currency;
+
+  TfrmPrincipal = class(TForm)
+    btnCadastrar: TButton;
+    edtQuantidadeProdutos: TEdit;
+    Label1: TLabel;
+  private
+    { Private declarations }
+    function CadastrarProdutos : TMatrizProdutos;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.CadastrarProdutos: TMatrizProdutos;
+var
+  xMatrizProdutos : TMatrizProdutos;
+  I, xQuantidadeProdutos : Integer;
+  xPrecoCusto, xPrecoVenda : Currency;
+begin
+  xQuantidadeProdutos := StrToInt(edtQuantidadeProdutos.Text);
+  SetLength(xMatrizProdutos, 3, xQuantidadeProdutos);
+
+  for I := 0 to (xQuantidadeProdutos) - 1 do
+    begin
+
+    end;
+
+end;
+
+end.

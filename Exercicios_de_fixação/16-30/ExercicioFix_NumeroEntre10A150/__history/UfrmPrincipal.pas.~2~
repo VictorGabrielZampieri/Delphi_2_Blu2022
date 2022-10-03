@@ -1,0 +1,52 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+
+  TfrmPrincipal = class(TForm)
+    btnIniciar: TButton;
+    Label1: TLabel;
+    procedure btnIniciarClick(Sender: TObject);
+  private
+    { Private declarations }
+    function VerificacaoNumeros : Integer;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.btnIniciarClick(Sender: TObject);
+begin
+  self.VerificacaoNumeros;
+end;
+
+function TfrmPrincipal.VerificacaoNumeros: Integer;
+var
+  ArrayNumeros : Array[1..5] of Double;
+  I : integer;
+  xControle : Double;
+begin
+
+  for I := 1 to 5 do
+    begin
+       xControle := StrToFloat(inputBox('Numeros' ,'Informe O ' + I.ToString + ' º Número', ''));
+       ArrayNumeros[I] := xControle;
+    end;
+
+end;
+
+end.

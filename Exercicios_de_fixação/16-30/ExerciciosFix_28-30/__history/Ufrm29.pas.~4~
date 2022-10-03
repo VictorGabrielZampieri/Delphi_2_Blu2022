@@ -1,0 +1,44 @@
+unit Ufrm29;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TArrayMeses = Array[1..12] of String;
+
+  Tfrm29 = class(TForm)
+    edtMes: TEdit;
+    Label1: TLabel;
+    lblResultado: TLabel;
+    btnExecutar: TButton;
+  private
+    { Private declarations }
+    procedure Controle;
+    function  RetornaMesExtenso(aArrayMesem : TArrayMeses) : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frm29: Tfrm29;
+
+implementation
+
+{$R *.dfm}
+
+{ Tfrm29 }
+
+procedure Tfrm29.Controle;
+begin
+
+end;
+
+function Tfrm29.RetornaMesExtenso(aArrayMesem: TArrayMeses): String;
+begin
+
+end;
+
+end.

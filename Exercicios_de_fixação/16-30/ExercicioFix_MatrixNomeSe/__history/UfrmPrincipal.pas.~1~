@@ -1,0 +1,52 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMatrizPessoas = Array of Array of String;
+
+  TfrmPrincipal = class(TForm)
+    edtQuantidadePessoas: TEdit;
+    Label1: TLabel;
+  private
+    { Private declarations }
+    procedure Exibir;
+    function ArmazenarPessoas : TMatrizPessoas;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.ArmazenarPessoas: TMatrizPessoas;
+var
+  xMPessoas : TMatrizPessoas;
+  I, xQuantidade : Integer;
+begin
+  xQuantidade := StrToInt(edtQuantidadePessoas.Text);
+  SetLength(xMPessoas, xQuantidade, xQuantidade);
+
+  for I := 0 to Length(xMPessoas) -1 do
+  begin
+    xMPessoas[I][I] := ;
+  end;
+
+end;
+
+procedure TfrmPrincipal.Exibir;
+begin
+
+end;
+
+end.

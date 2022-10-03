@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/26 18:36:38.000.744,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/26 18:37:15.000.171,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPricipal.pas</Transaction>
+    <Transaction>2022/09/26 18:37:15.000.171,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPricipal.dfm</Transaction>
+    <Transaction>2022/09/26 18:37:25.000.745,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPricipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/26 18:37:25.000.745,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPricipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/26 18:53:46.000.036,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_MediaeAprovacao\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/26 18:53:46.000.036,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_MediaeAprovacao\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/26 18:53:57.000.654,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_MediaeAprovacao\MediaeEstado.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

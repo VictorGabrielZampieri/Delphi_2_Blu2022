@@ -1,0 +1,128 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMatrizCarros = Array of Array of Currency;
+  TArrayDescontos = Array of Currency;
+
+  TfrmPrincipal = class(TForm)
+    btnComprar: TButton;
+    mmCarros: TMemo;
+    procedure btnComprarClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Exibir;
+    function  ArmazenandoValores : TMatrizCarros;
+    function CalculandoDesconto(aMatrizCarros : TMatrizCarros): TArrayDescontos;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.ArmazenandoValores: TMatrizCarros;
+var
+  xMatrizCarros : TMatrizCarros;
+  xPreco : Currency;
+  xControle : Integer;
+  xMensagem : String;
+begin
+   xPreco := 0;
+   xControle := 0;
+   while (xPreco = 0) do
+      begin
+
+        xPreco := StrToCurr(inputBox('Preço Do Carro' ,'Informe o Preço do Carro', ''));
+        if not (xPreco > 0) then
+        Break;
+
+        xMensagem := inputBox('Tipo de Combustível' ,'Informe o Tipo de Combustível do Carro(álcool – A, gasolina – G ou diesel – D)', '').ToUpper;
+
+
+        if (xMensagem = 'A') then
+        begin
+        SetLength(xMatrizCarros, 2,Length(xMatrizCarros)+1);
+          xMatrizCarros[0][xControle] := xPreco;
+          xMatrizCarros[1][xControle] := 0.25;
+        end
+        else if (xMensagem = 'G') then
+        begin
+          SetLength(xMatrizCarros, 2,Length(xMatrizCarros)+1);
+          xMatrizCarros[0][xControle] := xPreco;
+          xMatrizCarros[1][xControle] := 0.21;
+        end
+        else if (xMensagem = 'D') then
+          begin
+          SetLength(xMatrizCarros, 2,Length(xMatrizCarros)+1);
+          xMatrizCarros[0][xControle] := xPreco;
+          xMatrizCarros[1][xControle] := 0.14;
+        end
+        else
+        begin
+          ShowMessage('Valor Inválido!');
+          break;
+        end;
+          xPreco := xPreco - xPreco;
+          xControle := + 1;
+      end;
+
+      Result := xMatrizCarros;
+end;
+
+procedure TfrmPrincipal.btnComprarClick(Sender: TObject);
+begin
+  self.Exibir;
+end;
+
+function TfrmPrincipal.CalculandoDesconto(aMatrizCarros : TMatrizCarros): TArrayDescontos;
+var
+  I : Integer;
+  xArrayDescontos : TArrayDescontos;
+  xDesconto, xValor, xValorFinal : Currency;
+begin
+  xDesconto := 0; xValor := 0; xValorFinal := 0;
+  SetLength(xArrayDescontos, Length(aMatrizCarros));
+
+     for I := 0 to Length(aMatrizCarros)-1 do
+   begin
+     xValor := aMatrizCarros[0][I];
+     xDesconto := aMatrizCarros[0][I];
+
+     xValorFinal := xDesconto * xValor;
+     xArrayDescontos[I] := xValorFinal;
+   end;
+   Result := xArrayDescontos
+end;
+
+procedure TfrmPrincipal.Exibir;
+var
+  xMatrizCarros : TMatrizCarros;
+  xArrayCarrosDesconto : TArrayDescontos;
+  I : Integer;
+  xTotalPagar : Currency;
+begin
+   xTotalPagar := 0;
+   xMatrizCarros := self.ArmazenandoValores;
+   xArrayCarrosDesconto := Self.CalculandoDesconto(xMatrizCarros);
+
+   for I := 0 to Length(xArrayCarrosDesconto)-1 do
+     begin
+        xTotalPagar := xTotalPagar + xArrayCarrosDesconto[I];
+        mmCarros.Lines.Add('O Desconto do '+ (I+1).ToString +'º Carro foi de : '+ FormatFloat('0,00',xArrayCarrosDesconto[I]));
+     end;
+     mmCarros.Lines.Add('O Cliente Terá que Pagar :'+ FormatFloat('0.00',xTotalPagar));
+end;
+
+end.

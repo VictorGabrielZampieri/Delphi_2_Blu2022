@@ -1,0 +1,223 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TEnumMeses = (opJaneiro, opFevereiro, opMarco, opAbril, opMaio, opJunho, opJulho, opAgosto, opSetembro, opOutubro, opNovembro, opDezembro);
+
+  TfrmPrincipal = class(TForm)
+
+    Label1: TLabel;
+    edtValor: TEdit;
+    btnInteiro: TButton;
+    Label2: TLabel;
+    lbResultado: TLabel;
+    btnPontoFlutuante: TButton;
+    btnData: TButton;
+    btnDataExtenso: TButton;
+    procedure btnInteiroClick(Sender: TObject);
+    procedure btnPontoFlutuanteClick(Sender: TObject);
+    procedure btnDataClick(Sender: TObject);
+    procedure btnDataExtensoClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure ConvertendoStrParaInt;
+    procedure ConvertendoStrParaFloat;
+    procedure ConvertendoStrParaDate;
+    procedure ConvertendoStrParaDateExtenso;
+    function Meses(xDataMesIni : Word) : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.btnDataClick(Sender: TObject);
+begin
+  self.ConvertendoStrParaDate;
+end;
+
+procedure TfrmPrincipal.btnDataExtensoClick(Sender: TObject);
+begin
+  self.ConvertendoStrParaDateExtenso;
+end;
+
+procedure TfrmPrincipal.btnInteiroClick(Sender: TObject);
+begin
+      Self.ConvertendoStrParaInt;
+end;
+
+procedure TfrmPrincipal.btnPontoFlutuanteClick(Sender: TObject);
+begin
+  self.ConvertendoStrParaFloat;
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaDate;
+var
+  xDataIncial : TDate;
+  xResultado : String;
+begin
+  xDataIncial := StrToDate(edtValor.Text);
+
+  xDataIncial := xDataIncial + 2;
+
+  xResultado := DateToStr(xDataIncial);
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaDateExtenso;
+var
+ xData : TDate;
+ xDataMesExtenso : String;
+ xDataAno, xDataMes, xDataDia : Word;
+begin
+  xData := StrToDate(edtValor.Text);
+
+  DecodeDate(xData, xDataAno, xDataMes, xDataDia);
+  xDataMesExtenso := self.Meses(xDataMes);
+
+
+  lbResultado.Caption := 'Hoje é dia '  + IntToStr(xDataDia) + ' ' + xDataMesExtenso + ' de ' + IntToStr(xDataAno);
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaFloat;
+var
+  xValorIncial : Double;
+  xResultado : String;
+begin
+  xValorIncial := StrToFloat(edtValor.Text);
+
+  xValorIncial := xValorIncial + 10.50;
+
+  xResultado := xValorIncial.ToString;
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaInt;
+var
+  xValorIncial : Integer;
+  xResultado : String;
+begin
+  xValorIncial := StrToInt(edtValor.Text);
+
+  xValorIncial := xValorIncial + 10;
+
+  xResultado := xValorIncial.ToString;
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+function TfrmPrincipal.Meses(xDataMesIni : Word) : String;
+var
+  xIndex : Integer;
+  xDataMes : String;
+begin
+xDataMes := xDataMesIni.ToString;
+xIndex := StrToInt(xDataMes);
+
+  case TEnumMeses (xIndex - 1) of
+
+  opJaneiro :
+  begin
+       xDataMes := 'Janeiro';
+  end;
+
+  opFevereiro :
+  begin
+    xDataMes := 'Fevereiro';
+  end;
+
+  opMarco :
+  begin
+     xDataMes := 'Março';
+  end;
+
+  opAbril :
+  begin
+     xDataMes := 'Abril';
+  end;
+
+  opMaio :
+  begin
+     xDataMes := 'Maio';
+  end;
+
+  opJunho :
+  begin
+      xDataMes := 'Junho';
+  end;
+
+  opJulho :
+  begin
+      xDataMes := 'Julno';
+  end;
+
+  opAgosto :
+  begin
+      xDataMes := 'Agosto';
+  end;
+
+  opSetembro :
+  begin
+       xDataMes := 'Setembro';
+  end;
+
+  opOutubro :
+  begin
+      xDataMes := 'Outubro';
+  end;
+
+  opNovembro :
+  begin
+       xDataMes := 'Novembro';
+  end;
+
+  opDezembro :
+  begin
+       xDataMes := 'Dezembro';
+  end;
+
+  end;
+  Result := xDataMes;
+end;
+
+end.
+
+(*
+var
+  myDate : TDateTime;
+  myYear, myMonth, myDay : Word;
+  Meses: Array [1..12] of string;
+begin
+  Meses[1]:= 'Janeiro';
+  Meses[2]:= 'Fevereiro';
+  Meses[3]:= 'Março';
+  Meses[4]:= 'Abril';
+  Meses[5]:= 'Maio';
+  Meses[6]:= 'Junho';
+  Meses[7]:= 'Julho';
+  Meses[8]:= 'Agosto';;
+  Meses[9]:= 'Setembro';
+  Meses[10]:= 'Outubro';
+  Meses[11]:= 'Novembro';
+  Meses[12]:= 'Dezembro';
+  myDate:= StrToDate(Edit1.Text);
+  DecodeDate(myDate, myYear, myMonth, myDay);
+  labelResultado.Caption := 'Resultado: ' + IntToStr(myDay) + '/' + Meses[myMonth]+ '/' + IntToStr(myYear);
+  end;
+*)

@@ -1,0 +1,50 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmPrincipal = class(TForm)
+    btnIniciar: TButton;
+  private
+    { Private declarations }
+    procedure Compras;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.Compras;
+var
+  xValor, xDesconto : Currency;
+  xCarros2000, xCarrosAcima2000 : Integer;
+  xResposta : String;
+begin
+  xDesconto := 0;
+  xValor := 0;
+  xCarros2000 := 0;
+  xCarrosAcima2000 := 0;
+
+  while (xResposta <> 'N') do
+  begin
+
+  end;
+
+end;
+
+end.

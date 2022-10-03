@@ -1,0 +1,132 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMatrizProdutos = Array of Array of Currency;
+
+  TfrmPrincipal = class(TForm)
+    btnCadastrar: TButton;
+    edtQuantidadeProdutos: TEdit;
+    Label1: TLabel;
+    mmProdutos: TMemo;
+    mmInfo: TMemo;
+    lblCusto: TLabel;
+    lblPreco: TLabel;
+    procedure btnCadastrarClick(Sender: TObject);
+  private
+    { Private declarations }
+    function CadastrarProdutos : TMatrizProdutos;
+    procedure CalcularResultado(aMatrizProdutos : TMatrizProdutos);
+    procedure InformarResultados(aMatrizProdutos : TMatrizProdutos);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
+var
+  xMatrizProdutos : TMatrizProdutos;
+begin
+
+  xMatrizProdutos := self.CadastrarProdutos;
+  self.CalcularResultado(xMatrizProdutos);
+  self.InformarResultados(xMatrizProdutos);
+end;
+
+function TfrmPrincipal.CadastrarProdutos: TMatrizProdutos;
+var
+  xMatrizProdutos : TMatrizProdutos;
+  I, xQuantidadeProdutos : Integer;
+  xPrecoCusto, xPrecoVenda : Currency;
+begin
+  xQuantidadeProdutos := StrToInt(edtQuantidadeProdutos.Text);
+  SetLength(xMatrizProdutos, 2, xQuantidadeProdutos);
+
+  for I := 0 to (xQuantidadeProdutos) - 1 do
+    begin
+
+      xPrecoCusto := StrToCurr(inputBox('Custo' ,'Informe o Custo do ' + (I + 1).ToString + ' º Produto', ''));
+      xMatrizProdutos[0][I] := xPrecoCusto;
+
+      xPrecoVenda := StrToCurr(inputBox('Preço' ,'Informe o Preço do ' + (I + 1).ToString + ' º Produto', ''));
+      xMatrizProdutos[1][I] := xPrecoVenda;
+    end;
+
+    Result := xMatrizProdutos;
+end;
+
+procedure TfrmPrincipal.CalcularResultado(aMatrizProdutos: TMatrizProdutos);
+var
+  xMatrizProduto : TMatrizProdutos;
+  xValorFinal, xCusto, xPreco : Currency;
+  I, xQuantidade : Integer;
+begin
+  xMatrizProduto := aMatrizProdutos;
+  xQuantidade := StrToInt(edtQuantidadeProdutos.Text);
+  xCusto := 0;
+  xPreco := 0;
+
+  for I := 0 to (xQuantidade) -1 do
+    begin
+
+      xCusto :=  xMatrizProduto[0][I];
+      xPreco :=  xMatrizProduto[1][I];
+
+      xValorFinal := xPreco - xCusto;
+
+      if (xValorFinal > xCusto) then
+      mmProdutos.Lines.Add('O '+ (I+1).ToString  +' º foi Lucro');
+
+      if (xValorFinal = xCusto) then
+      mmProdutos.Lines.Add('O '+ (I+1).ToString  +' º foi Empate');
+
+      if (xValorFinal < xCusto) then
+      mmProdutos.Lines.Add('O '+ (I+1).ToString  +' º foi Prejuízo');
+
+    end;
+
+end;
+
+procedure TfrmPrincipal.InformarResultados(aMatrizProdutos: TMatrizProdutos);
+var
+  xMatrizProduto : TMatrizProdutos;
+  xMediaPreco, xMediaCusto, xTotalCusto, xTotalPreco : Currency;
+  I, xQuantidade : Integer;
+begin
+  xMatrizProduto := aMatrizProdutos;
+  xQuantidade := StrToInt(edtQuantidadeProdutos.Text);
+  xTotalCusto := 0;
+  xTotalPreco := 0;
+
+  for I := 0 to (xQuantidade) -1 do
+    begin
+
+      xTotalCusto := xTotalCusto + xMatrizProduto[0][I];
+      xTotalPreco := xTotalPreco +  xMatrizProduto[1][I];
+
+      xMediaPreco := xTotalPreco/xQuantidade;
+      xMediaCusto := xTotalCusto/xQuantidade;
+
+      lblCusto.Caption := 'Média de Custo :' + CurrToStr(xMediaCusto);
+      lblCusto.Caption := 'Média de Preço :' + CurrToStr(xMediaPreco);
+
+      mmInfo.Lines.Add('O '+ (I+1).ToString  +' º Produto Custou :' + CurrToStr(xMatrizProduto[0][I]));
+      mmInfo.Lines.Add('O Preço do '+ (I+1).ToString  +' º Produto foi :' + CurrToStr(xMatrizProduto[1][I]));
+
+    end;
+end;
+
+end.

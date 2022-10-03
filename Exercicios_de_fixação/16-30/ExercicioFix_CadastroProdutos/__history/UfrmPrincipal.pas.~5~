@@ -1,0 +1,87 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TMatrizProdutos = Array of Array of Currency;
+
+  TfrmPrincipal = class(TForm)
+    btnCadastrar: TButton;
+    edtQuantidadeProdutos: TEdit;
+    Label1: TLabel;
+  private
+    { Private declarations }
+    function CadastrarProdutos : TMatrizProdutos;
+    function CalcularResultado(aMatrizProdutos : TMatrizProdutos) : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.CadastrarProdutos: TMatrizProdutos;
+var
+  xMatrizProdutos : TMatrizProdutos;
+  I, xQuantidadeProdutos : Integer;
+  xPrecoCusto, xPrecoVenda : Currency;
+begin
+  xQuantidadeProdutos := StrToInt(edtQuantidadeProdutos.Text);
+  SetLength(xMatrizProdutos, 2, xQuantidadeProdutos);
+
+  for I := 0 to (xQuantidadeProdutos) - 1 do
+    begin
+
+      xPrecoCusto := StrToCurr(inputBox('Custo' ,'Informe o Custo do ' + (I + 1).ToString + ' º Produto', ''));
+      xMatrizProdutos[0][I] := xPrecoCusto;
+
+      xPrecoVenda := StrToCurr(inputBox('Preço' ,'Informe o Preço do ' + (I + 1).ToString + ' º Produto', ''));
+      xMatrizProdutos[1][I] := xPrecoVenda;
+    end;
+
+    Result := xMatrizProdutos;
+end;
+
+function TfrmPrincipal.CalcularResultado(aMatrizProdutos: TMatrizProdutos): String;
+var
+  xMatrizProduto : TMatrizProdutos;
+  xValorFinal, xTotalCusto, xTotalPreco : Currency;
+  I, xQuantidade : Integer;
+begin
+  xMatrizProduto := aMatrizProdutos;
+  xQuantidade := StrToInt(edtQuantidadeProdutos.Text);
+  xTotalCusto := 0;
+  xTotalPreco := 0;
+
+  for I := 0 to (xQuantidade) -1 do
+    begin
+
+      xTotalCusto :=  xMatrizProduto[0][I];
+      xTotalPreco :=  xMatrizProduto[1][I];
+
+      xValorFinal := xTotalPreco - xTotalCusto;
+
+      if (xValorFinal > xTotalCusto) then
+      Result := 'Lucro';
+
+      if (xValorFinal = xTotalCusto) then
+      Result := 'Empate';
+
+      if (xValorFinal < xTotalCusto) then
+      Result := 'Prejuízo';
+
+    end;
+
+end;
+
+end.

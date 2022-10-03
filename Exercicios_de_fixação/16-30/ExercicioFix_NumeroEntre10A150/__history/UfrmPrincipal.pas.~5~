@@ -1,0 +1,58 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TArrayNumeros = Array of Double;
+
+  TfrmPrincipal = class(TForm)
+    btnIniciar: TButton;
+    Label1: TLabel;
+    edtSizeArray: TEdit;
+    procedure btnIniciarClick(Sender: TObject);
+  private
+    { Private declarations }
+    function ArmazenarNumeros : TArrayNumeros;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.btnIniciarClick(Sender: TObject);
+begin
+  self.ArmazenarNumeros;
+end;
+
+
+
+function TfrmPrincipal.ArmazenarNumeros: TArrayNumeros;
+var
+  ArrayNumeros : TArrayNumeros;
+  I : integer;
+  xControle : Integer;
+begin
+    xControle := StrToInt(edtSizeArray.Text);
+    SetLength(ArrayNumeros, xControle);
+
+  for I := 0 to Length(ArrayNumeros) do
+    begin
+       ArrayNumeros[I] := StrToFloat(inputBox('Numeros' ,'Informe O ' + I.ToString + ' º Número', ''));
+    end;
+
+     Result := ArrayNumeros;
+end;
+
+end.

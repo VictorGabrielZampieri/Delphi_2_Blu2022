@@ -1,0 +1,90 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Prestac'#245'es'
+  ClientHeight = 307
+  ClientWidth = 418
+  Color = clSilver
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Tahoma'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 18
+  object Label1: TLabel
+    Left = 40
+    Top = 48
+    Width = 133
+    Height = 18
+    Caption = 'Valor do produto :'
+  end
+  object Label2: TLabel
+    Left = 40
+    Top = 144
+    Width = 92
+    Height = 18
+    Caption = 'Presta'#231#245'es :'
+  end
+  object Label3: TLabel
+    Left = 96
+    Top = 75
+    Width = 67
+    Height = 18
+    Caption = 'Entrada :'
+  end
+  object edtValor: TEdit
+    Left = 184
+    Top = 49
+    Width = 97
+    Height = 21
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+  object m_prestacoes: TMemo
+    Left = 40
+    Top = 168
+    Width = 144
+    Height = 112
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object btnComprar: TButton
+    Left = 296
+    Top = 74
+    Width = 75
+    Height = 25
+    Caption = 'Comprar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Edit1: TEdit
+    Left = 184
+    Top = 76
+    Width = 97
+    Height = 21
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+end

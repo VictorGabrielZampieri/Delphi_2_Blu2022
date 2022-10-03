@@ -1,0 +1,66 @@
+unit Ufrm28;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TRecordFuncionario = Record
+    Nome : String;
+    SalarioAtual : Currency;
+    NovoSalario : Currency;
+  End;
+
+  TArrayFuncionarios = Array of TRecordFuncionario;
+
+  Tfrm28 = class(TForm)
+    mmFuncionarios: TMemo;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtRegistrar: TButton;
+    edtQuantidadeFuncionarios: TEdit;
+    btnReajustar: TButton;
+  private
+    { Private declarations }
+    procedure Controle;
+    procedure RegistrarSalarioMinimo(var aSalarioMin : Currency);
+    function  RegistrarFuncionarios : TArrayFuncionarios;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmExercicio28: Tfrm28;
+
+implementation
+
+{$R *.dfm}
+
+{ Tfrm28 }
+
+procedure Tfrm28.Controle;
+var
+  xSalarioMinimo : Currency;
+  xArrayFuncionarios : TArrayFuncionarios;
+begin
+  RegistrarSalarioMinimo(xSalarioMinimo);
+  xArrayFuncionarios := RegistrarFuncionarios;
+end;
+
+function Tfrm28.RegistrarFuncionarios: TArrayFuncionarios;
+var
+  xFuncionario : TRecordFuncionario;
+  xArrayFuncionarios : TArrayFuncionarios;
+  xQuantidadeFuncionarios : Integer;
+begin
+  xQuantidadeFuncionarios := StrToInt(edtRegistrar.t);
+end;
+
+procedure Tfrm28.RegistrarSalarioMinimo(var aSalarioMin : Currency);
+begin
+  aSalarioMin := StrToCurr(inputBox('Salário Minimo','Informe o Salário Minimo',''));
+end;
+
+end.

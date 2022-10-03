@@ -1,0 +1,91 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Vendas'
+  ClientHeight = 236
+  ClientWidth = 418
+  Color = clSilver
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 79
+    Width = 137
+    Height = 18
+    Caption = 'Pre'#231'o do Produto :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 40
+    Top = 119
+    Width = 94
+    Height = 18
+    Caption = 'Percentual  :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 183
+    Width = 124
+    Height = 18
+    Caption = 'Pre'#231'o de Venda :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblPreco: TLabel
+    Left = 146
+    Top = 183
+    Width = 10
+    Height = 18
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object edtProduto: TEdit
+    Left = 151
+    Top = 80
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object edtPercentual: TEdit
+    Left = 151
+    Top = 120
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
+  object btnCalcular: TButton
+    Left = 304
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'Calcular'
+    TabOrder = 2
+    OnClick = btnCalcularClick
+  end
+end

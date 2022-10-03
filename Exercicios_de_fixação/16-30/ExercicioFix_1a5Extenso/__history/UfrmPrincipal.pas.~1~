@@ -1,0 +1,61 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TEnumNumerosExtenso = (opUm, opDois, opTres, opQuatro, opCinco);
+
+  TfrmPrincipal = class(TForm)
+    Label1: TLabel;
+    edtNumero: TEdit;
+    btnVerificar: TButton;
+    lblResposta: TLabel;
+  private
+    { Private declarations }
+    procedure Exibir;
+    function  VerificarNumero : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.Exibir;
+var
+  xMensagem : String;
+begin
+  xMensagem := VerificarNumero;
+
+  lblResposta.Visible := True;
+  lblResposta.Caption := xMensagem;
+end;
+
+function TfrmPrincipal.VerificarNumero: String;
+var
+  xNumero : Integer;
+begin
+
+  if not (TryStrToInt(edtNumero.Text, xNumero)) then
+    raise Exception.Create('Informe Um Número Válido');
+
+    if (xNumero >= 1) and (xNumero <= 5) then
+    begin
+      case (xNumero)-1 of
+       opUm :
+
+      end;
+    end;
+end;
+
+end.

@@ -1,0 +1,70 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmPrincipal = class(TForm)
+    edtNomeAluno: TEdit;
+    edtNota1: TEdit;
+    edtNota2: TEdit;
+    edtNota3: TEdit;
+    btnCalcularMedia: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+  private
+    { Private declarations }
+    function CalcularMedia : Double;
+    function Estado(xMediaFinal : Double) : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.CalcularMedia: Double;
+var
+  xPrimeiraNota, xSegundaNota, xTerceiraNota, xMediaFinal : Double;
+begin
+
+  if not TryStrToFloat(edtNota1.Text, xPrimeiraNota) then
+    raise Exception.Create('Por Favor Insira um Valor Válido');
+
+  if not TryStrToFloat(edtNota2.Text, xSegundaNota) then
+    raise Exception.Create('Por Favor Insira um Valor Válido');
+
+  if not TryStrToFloat(edtNota3.Text, xSegundaNota) then
+    raise Exception.Create('Por Favor Insira um Valor Válido');
+
+  xMediaFinal :=  ((xPrimeiraNota + xSegundaNota + xTerceiraNota) / 3);
+
+  Result  := xMediaFinal;
+end;
+
+function TfrmPrincipal.Estado(xMediaFinal : Double) : String;
+begin
+
+  if (xMediaFinal >= 7) then
+  Result := 'Aprovado';
+
+  if (xMediaFinal <= 5) then
+  Result := 'Reprovado';
+
+  if (xMediaFinal <= 6.9) or (xMediaFinal >= 5.1) then
+  Result := 'Recuperação';
+
+end;
+
+end.

@@ -1,0 +1,129 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TEnumMeses = (opJaneiro, opFevereiro, opMarco, opAbril, opMaio, opJunho, opJulho, opAgosto, opSetembro, opOutubro, opNovembro, opDezembro);
+
+  TfrmPrincipal = class(TForm)
+
+    Label1: TLabel;
+    edtValor: TEdit;
+    btnInteiro: TButton;
+    Label2: TLabel;
+    lbResultado: TLabel;
+    btnPontoFlutuante: TButton;
+    btnData: TButton;
+    btnDataExtenso: TButton;
+    procedure btnInteiroClick(Sender: TObject);
+    procedure btnPontoFlutuanteClick(Sender: TObject);
+    procedure btnDataClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure ConvertendoStrParaInt;
+    procedure ConvertendoStrParaFloat;
+    procedure ConvertendoStrParaDate;
+    procedure ConvertendoStrParaDateExtenso;
+    function Meses(xDataMes : String) : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.btnDataClick(Sender: TObject);
+begin
+  self.ConvertendoStrParaDate;
+end;
+
+procedure TfrmPrincipal.btnInteiroClick(Sender: TObject);
+begin
+      Self.ConvertendoStrParaInt;
+end;
+
+procedure TfrmPrincipal.btnPontoFlutuanteClick(Sender: TObject);
+begin
+  self.ConvertendoStrParaFloat;
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaDate;
+var
+  xDataIncial : TDate;
+  xResultado : String;
+begin
+  xDataIncial := StrToDate(edtValor.Text);
+
+  xDataIncial := xDataIncial + 2;
+
+  xResultado := DateToStr(xDataIncial);
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaDateExtenso;
+var
+ xData : TDate;
+ xDataAno, xDataMes, xDataDia : Word;
+begin
+  xData := StrToDate(edtValor.Text);
+
+  DecodeDate(xData, xDataAno, xDataMes, xDataDia);
+
+  lbResultado.Caption := 'Hoje é dia '  ;
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaFloat;
+var
+  xValorIncial : Double;
+  xResultado : String;
+begin
+  xValorIncial := StrToFloat(edtValor.Text);
+
+  xValorIncial := xValorIncial + 10.50;
+
+  xResultado := xValorIncial.ToString;
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+procedure TfrmPrincipal.ConvertendoStrParaInt;
+var
+  xValorIncial : Integer;
+  xResultado : String;
+begin
+  xValorIncial := StrToInt(edtValor.Text);
+
+  xValorIncial := xValorIncial + 10;
+
+  xResultado := xValorIncial.ToString;
+
+  lbResultado.Caption := xResultado;
+
+end;
+
+function TfrmPrincipal.Meses(xDataMes : String) : String;
+var
+  xIndex : Integer;
+begin
+StrToInt(xDataMes);
+  case TEnumMeses (xIndex + 1) of
+
+  opJaneiro :
+  begin
+       xDataMes := '';
+  end;
+end;
+
+end.

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/27 18:17:13.000.267,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/27 18:17:36.000.998,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/09/27 18:17:36.000.998,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/27 18:39:08.000.699,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_Carrango_Velho\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/27 18:39:08.000.699,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_Carrango_Velho\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/27 18:39:19.000.633,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExercicioFix_Carrango_Velho\CarrangoVelho.dproj=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

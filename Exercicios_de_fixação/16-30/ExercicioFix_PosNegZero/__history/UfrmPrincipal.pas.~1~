@@ -1,0 +1,82 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TArrayNumeros = Array of Double;
+  TfrmPrincipal = class(TForm)
+    Label1: TLabel;
+    edtNumero: TEdit;
+    btnVerificar: TButton;
+    mmNumeros: TMemo;
+  private
+    { Private declarations }
+    procedure Exibir;
+    function ArmazenarNumeros : TArrayNumeros;
+    procedure VerificarNumeros(aArrayNumeros : TArrayNumeros);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.ArmazenarNumeros: TArrayNumeros;
+var
+  xArrayNumeros : TArrayNumeros;
+  xQuantidadeNumeros, I : Integer;
+begin
+      xQuantidadeNumeros := StrToInt(edtNumero.Text);
+      SetLength(xArrayNumeros, xQuantidadeNumeros);
+
+      for I := 0 to xQuantidadeNumeros - 1 do
+      begin
+        xArrayNumeros[I] := StrToFloat(inputbox('Numeros','Informe Um número',''));
+      end;
+
+      Result := xArrayNumeros;
+end;
+
+procedure TfrmPrincipal.Exibir;
+var
+  xArrayNumeros : TArrayNumeros;
+begin
+  xArrayNumeros := self.ArmazenarNumeros;
+  self.VerificarNumeros(xArrayNumeros);
+end;
+
+procedure TfrmPrincipal.VerificarNumeros(aArrayNumeros: TArrayNumeros);
+var
+  xQuantdade, I : Integer;
+  xNumero : Double;
+  xMensagem : String;
+begin
+  xQuantdade := StrToInt(edtNumero.Text);
+
+  for I := 0 to Length(aArrayNumeros)-1 do
+  begin
+    xNumero := aArrayNumeros[I];
+
+    if (xNumero < 0) then
+    mmNumeros.Lines.Add('O '+ I.ToString +' º Número é Negativo');
+
+    if (xNumero > 0) then
+    mmNumeros.Lines.Add('O '+ I.ToString +' º Número é Positivo');
+
+    if (xNumero = 0) then
+    mmNumeros.Lines.Add('O '+ I.ToString +' º Número é Zero');
+  end;
+
+end;
+
+end.

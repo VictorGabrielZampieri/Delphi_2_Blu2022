@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:24:54.000.257,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:27:27.000.147,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:27:27.000.147,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/09/30 20:27:57.000.980,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/30 20:27:57.000.980,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/30 20:28:30.000.568,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\UltimosExer.dproj=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/09/30 20:30:15.000.021,=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:30:55.000.073,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Ufrm28.pas=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:30:55.000.073,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Ufrm28.dfm=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.dfm</Transaction>
+    <Transaction>2022/09/30 20:31:03.000.393,=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:31:16.000.881,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Ufrm29.pas=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.pas</Transaction>
+    <Transaction>2022/09/30 20:31:16.000.881,C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Ufrm29.dfm=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\16-30\ExerciciosFix_28-30\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,54 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmPrincipal = class(TForm)
+    btnCalcular: TButton;
+    Label1: TLabel;
+    edtPrimeiroNumero: TEdit;
+    edtSegundoNumero: TEdit;
+  private
+    { Private declarations }
+    procedure SomarNumeros;
+    procedure SubtrairNumeros;
+    procedure MultiplicarNumeros;
+    procedure DividirNumeros;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.DividirNumeros;
+begin
+
+end;
+
+procedure TfrmPrincipal.MultiplicarNumeros;
+begin
+
+end;
+
+procedure TfrmPrincipal.SomarNumeros;
+begin
+
+end;
+
+procedure TfrmPrincipal.SubtrairNumeros;
+begin
+
+end;
+
+end.

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/23 19:39:10.000.298,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/23 19:40:03.000.173,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/23 19:40:03.000.173,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/23 19:57:51.000.480,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\ExercicioFix_\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/09/23 19:57:51.000.480,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\ExercicioFix_\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/09/23 19:58:01.000.513,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\vgzampieri\Desktop\Exer- modulo-1\Exercicios_de_fixação\ExercicioFix_\Prestacoes.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,71 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmPrincipal = class(TForm)
+    edtNomeAluno: TEdit;
+    edtNota1: TEdit;
+    edtNota2: TEdit;
+    edtNota3: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    btnCalcularMedia: TButton;
+    lblNome: TLabel;
+    lblMedia: TLabel;
+    procedure btnCalcularMediaClick(Sender: TObject);
+  private
+    { Private declarations }
+    function CalcularMedia : Double;
+    procedure GerarBoletim;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.btnCalcularMediaClick(Sender: TObject);
+begin
+  Self.GerarBoletim;
+end;
+
+function TfrmPrincipal.CalcularMedia: Double;
+ var
+  xMedia, xNota1, xNota2, xNota3 : Double;
+begin
+   xMedia := 0;
+   xNota1 := StrToFloat(edtNota1.Text);
+   xNota2 := StrToFloat(edtNota2.Text);
+   xNota3 := StrToFloat(edtNota3.Text);
+
+   xMedia := ((xMedia + xNota1 + xNota2 + xNota3) / 3);
+
+   result := xMedia;
+end;
+
+procedure TfrmPrincipal.GerarBoletim;
+var
+  xNome : String;
+  xMedia : Double;
+begin
+  xNome := edtNomeAluno.Text;
+  xMedia := self.CalcularMedia;
+
+  lblNome.Caption := xNome;
+  lblMedia.Caption := FormatFloat('00,0',xMedia);
+end;
+
+end.
