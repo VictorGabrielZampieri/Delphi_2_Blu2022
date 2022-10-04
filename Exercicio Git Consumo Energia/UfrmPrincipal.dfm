@@ -14,8 +14,8 @@ object frmPrincipal: TfrmPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
-    Left = 80
-    Top = 28
+    Left = 100
+    Top = 8
     Width = 294
     Height = 24
     Caption = 'Calcular Consumo de Energia'
@@ -27,8 +27,8 @@ object frmPrincipal: TfrmPrincipal
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 8
-    Top = 76
+    Left = 32
+    Top = 52
     Width = 386
     Height = 18
     Caption = 'Informe a Quantidade de enegia consumida em KW :'
@@ -53,9 +53,22 @@ object frmPrincipal: TfrmPrincipal
     ParentFont = False
     Visible = False
   end
+  object Label3: TLabel
+    Left = 265
+    Top = 84
+    Width = 153
+    Height = 18
+    Caption = 'Informe o desconto :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object edtQuantidade: TEdit
-    Left = 400
-    Top = 77
+    Left = 424
+    Top = 53
     Width = 88
     Height = 21
     TabOrder = 0
@@ -69,7 +82,8 @@ object frmPrincipal: TfrmPrincipal
     Items.Strings = (
       'Resid'#234'ncia(0,60 KW/h)'
       'Com'#233'rcio(0,48 KW/h)'
-      'Ind'#250'stria(1,29 KW/h)')
+      'Ind'#250'stria(1,29 KW/h)'
+      'Fazenda(2,18 KW/h)')
     TabOrder = 1
   end
   object btnExecutar: TButton
@@ -80,5 +94,12 @@ object frmPrincipal: TfrmPrincipal
     Caption = 'Calcular'
     TabOrder = 2
     OnClick = btnExecutarClick
+  end
+  object edtDesconto: TEdit
+    Left = 424
+    Top = 81
+    Width = 88
+    Height = 21
+    TabOrder = 3
   end
 end
