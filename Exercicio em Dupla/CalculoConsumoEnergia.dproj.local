@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/03 21:03:38.000.128,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/03 21:04:37.000.146,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/10/03 21:04:37.000.146,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/10/03 21:15:39.000.119,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicio em Dupla\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/10/03 21:15:39.000.119,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicio em Dupla\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/10/03 21:16:01.000.061,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicio em Dupla\CalculoConsumoEnergia.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

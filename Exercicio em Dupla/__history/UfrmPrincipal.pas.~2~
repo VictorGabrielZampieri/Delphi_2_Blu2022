@@ -1,0 +1,47 @@
+unit UfrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TEnumTiposClientes = (opResidencia, opComercio, opIndustria);
+
+  TfrmPrincipal = class(TForm)
+    rgTipoCliente: TRadioGroup;
+    edtQuantidade: TEdit;
+    Label1: TLabel;
+    btnCalcular: TButton;
+    lblResposta: TLabel;
+  private
+    { Private declarations }
+    procedure Principal;
+    function  CalcularConsumo(aConsumo : Double) : Double;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmPrincipal }
+
+function TfrmPrincipal.CalcularConsumo(aConsumo: Double): Double;
+begin
+
+end;
+
+procedure TfrmPrincipal.Principal;
+var
+  xConsumo : Double;
+begin
+
+end;
+
+end.
