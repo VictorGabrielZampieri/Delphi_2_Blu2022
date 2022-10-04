@@ -1,4 +1,4 @@
-program CalculoConsumoEnergia;
+program ProjetoDupla;
 
 uses
   Vcl.Forms,

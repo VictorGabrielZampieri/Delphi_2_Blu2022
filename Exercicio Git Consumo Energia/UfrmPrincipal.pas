@@ -13,10 +13,11 @@ type
     rgTipoCliente: TRadioGroup;
     edtQuantidade: TEdit;
     Label1: TLabel;
-    btnCalcular: TButton;
     lblResposta: TLabel;
     Label2: TLabel;
-    procedure btnCalcularClick(Sender: TObject);
+    btnExecutar: TButton;
+    procedure btnExecutarClick(Sender: TObject);
+
   private
     { Private declarations }
     procedure Principal;
@@ -34,7 +35,8 @@ implementation
 
 { TfrmPrincipal }
 
-procedure TfrmPrincipal.btnCalcularClick(Sender: TObject);
+
+procedure TfrmPrincipal.btnExecutarClick(Sender: TObject);
 begin
   self.Principal;
 end;

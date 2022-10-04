@@ -1,10 +1,10 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  Caption = 'Calcular Conta de Luz'
+  Caption = 'frmPrincipal'
   ClientHeight = 281
-  ClientWidth = 496
-  Color = clSilver
+  ClientWidth = 538
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -13,6 +13,19 @@ object frmPrincipal: TfrmPrincipal
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label2: TLabel
+    Left = 80
+    Top = 28
+    Width = 294
+    Height = 24
+    Caption = 'Calcular Consumo de Energia'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object Label1: TLabel
     Left = 8
     Top = 76
@@ -40,18 +53,12 @@ object frmPrincipal: TfrmPrincipal
     ParentFont = False
     Visible = False
   end
-  object Label2: TLabel
-    Left = 88
-    Top = 28
-    Width = 294
-    Height = 24
-    Caption = 'Calcular Consumo de Energia'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
+  object edtQuantidade: TEdit
+    Left = 400
+    Top = 77
+    Width = 88
+    Height = 21
+    TabOrder = 0
   end
   object rgTipoCliente: TRadioGroup
     Left = 25
@@ -63,22 +70,15 @@ object frmPrincipal: TfrmPrincipal
       'Resid'#234'ncia(0,60 KW/h)'
       'Com'#233'rcio(0,48 KW/h)'
       'Ind'#250'stria(1,29 KW/h)')
-    TabOrder = 0
-  end
-  object edtQuantidade: TEdit
-    Left = 400
-    Top = 77
-    Width = 88
-    Height = 21
     TabOrder = 1
   end
-  object btnCalcular: TButton
-    Left = 216
-    Top = 120
+  object btnExecutar: TButton
+    Left = 232
+    Top = 136
     Width = 75
     Height = 25
     Caption = 'Calcular'
     TabOrder = 2
-    OnClick = btnCalcularClick
+    OnClick = btnExecutarClick
   end
 end
