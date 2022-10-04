@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TEnumTiposClientes = (opResidencia, opComercio, opIndustria);
+  TEnumTiposClientes = (opResidencia, opComercio, opIndustria, opFazenda);
 
   TfrmPrincipal = class(TForm)
     rgTipoCliente: TRadioGroup;
@@ -16,6 +16,8 @@ type
     lblResposta: TLabel;
     Label2: TLabel;
     btnExecutar: TButton;
+    Label3: TLabel;
+    edtDesconto: TEdit;
     procedure btnExecutarClick(Sender: TObject);
 
   private
@@ -44,8 +46,10 @@ end;
 function TfrmPrincipal.CalcularConsumo: Currency;
 var
   xConsumo : Double;
-  xValor : Currency;
+  xValor, xDesconto : Currency;
 begin
+
+  xDesconto:= StrToCurr(edtDesconto.Text);
 
   if (TryStrToFloat(edtQuantidade.Text, xConsumo)) then
   begin
@@ -53,21 +57,26 @@ begin
       opResidencia  :
       begin
         xValor := (xConsumo * 0.60);
-        Result := xValor;
+        Result := xValor - xDesconto;
       end;
 
       opComercio  :
       begin
         xValor := (xConsumo * 0.48);
-        Result := xValor;
+        Result := xValor - xDesconto;
       end;
 
       opIndustria :
       begin
         xValor := (xConsumo * 1.29);
-        Result := xValor;
+        Result := xValor - xDesconto;
       end;
 
+      opFazenda :
+      begin
+        xValor := (xConsumo * 2.18);
+        Result := xValor - xDesconto;
+      end;
       else
       Result := 0;
       lblResposta.Visible := True;
