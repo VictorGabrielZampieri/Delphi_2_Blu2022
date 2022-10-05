@@ -49,30 +49,32 @@ var
   xValor, xDesconto : Currency;
 begin
 
-  if (TryStrToFloat(edtQuantidade.Text, xConsumo)) and (TryStrToCurr(edtDesconto.Text, xDesconto)) then
+  xDesconto:= StrToCurr(edtDesconto.Text);
+
+  if (TryStrToFloat(edtQuantidade.Text, xConsumo)) then
   begin
    case TEnumTiposClientes(rgTipoCliente.ItemIndex) of
       opResidencia  :
       begin
-        xValor := (xConsumo * 0.80);
+        xValor := (xConsumo * 0.60);
         Result := xValor - xDesconto;
       end;
 
       opComercio  :
       begin
-        xValor := (xConsumo * 0.68);
+        xValor := (xConsumo * 0.48);
         Result := xValor - xDesconto;
       end;
 
       opIndustria :
       begin
-        xValor := (xConsumo * 1.49);
+        xValor := (xConsumo * 1.29);
         Result := xValor - xDesconto;
       end;
 
       opFazenda :
       begin
-        xValor := (xConsumo * 3.18);
+        xValor := (xConsumo * 2.18);
         Result := xValor - xDesconto;
       end;
       else
@@ -85,7 +87,7 @@ begin
   else
     Result := 0;
     lblResposta.Visible := True;
-    lblResposta.Caption := 'PorFavor Selecione uma Opção';
+    lblResposta.Caption := 'O Valor Informado é Inválido';
 end;
 
 procedure TfrmPrincipal.Principal;

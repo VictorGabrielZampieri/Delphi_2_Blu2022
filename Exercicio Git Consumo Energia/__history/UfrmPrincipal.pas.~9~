@@ -72,7 +72,7 @@ begin
 
       opFazenda :
       begin
-        xValor := (xConsumo * 3.18);
+        xValor := (xConsumo * 3.08);
         Result := xValor - xDesconto;
       end;
       else
