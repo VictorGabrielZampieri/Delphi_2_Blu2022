@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/12 18:23:52.000.872,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/05 19:44:03.991,=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/05 19:48:52.768,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/10/05 19:48:52.768,C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/05 19:49:57.436,C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicios_base_OOP\UfrmPrincipal.pas=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.pas</Transaction>
+    <Transaction>2022/10/05 19:49:57.436,C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicios_base_OOP\UfrmPrincipal.dfm=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\UfrmPrincipal.dfm</Transaction>
+    <Transaction>2022/10/05 19:50:09.844,C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exercicios_base_OOP\Triangulo.dproj=C:\Users\vgzampieri\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
