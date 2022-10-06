@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Math;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Math, UTriangulo;
 
 type
   TfrmPrincipal = class(TForm)
@@ -31,6 +31,7 @@ type
   private
     { Private declarations }
     procedure Principal;
+    procedure CalcularAreasOOP;
     function CalcularAreaX : Double;
     function CalcularAreaY : Double;
   public
@@ -49,6 +50,43 @@ implementation
 procedure TfrmPrincipal.btnCalcularClick(Sender: TObject);
 begin
   self.Principal;
+end;
+
+procedure TfrmPrincipal.CalcularAreasOOP;
+var
+  xTrianguloX:  TTRiangulo;
+  xTrianguloY:  TTRiangulo;
+
+  xAreaX: Double;
+  xAreaY: Double;
+begin
+  xTrianguloX := TTriangulo.Create;
+  xTrianguloY := TTriangulo.Create;
+
+  try
+    xTrianguloX.a  :=  StrToFloatDef(edtXa.Text,0);
+    xTrianguloX.b  :=  StrToFloatDef(edtXb.Text,0);
+    xTrianguloX.c  :=  StrToFloatDef(edtXc.Text,0);
+
+    xAreaX := xTrianguloX.Area;
+
+    xTrianguloY.a  :=  StrToFloatDef(edtYa.Text,0);
+    xTrianguloY.b  :=  StrToFloatDef(edtYb.Text,0);
+    xTrianguloY.c  :=  StrToFloatDef(edtYc.Text,0);
+
+    xAreaY := xTrianguloY.Area;
+
+    lblRespostaX.Caption := 'Triangulo X Área' + FormatFloat('#,##0.00',xAreaX);
+    lblRespostaY.Caption := 'Triangulo Y Área' + FormatFloat('#,##0.00',xAreaY);
+
+      if (xAreaX > xAreaY) then
+         lblRespostaMaior.Caption := 'A área do Trinagulo X é Maior.'
+      else
+         lblRespostaMaior.Caption := 'A área do Trinagulo Y é Maior.';
+  finally
+    FreeAndNil(xTrianguloX);
+    FreeAndNil(xTrianguloY);
+  end;
 end;
 
 function TfrmPrincipal.CalcularAreaX: Double;

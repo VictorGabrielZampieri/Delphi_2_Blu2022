@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Minha Primeira Classe'
   ClientHeight = 365
   ClientWidth = 418
-  Color = clBtnFace
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -110,9 +110,9 @@ object frmPrincipal: TfrmPrincipal
   object lblRespostaMaior: TLabel
     Left = 32
     Top = 312
-    Width = 86
+    Width = 160
     Height = 18
-    Caption = 'Triangulo Y'
+    Caption = 'A '#225'rea do Triangulo...'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -142,7 +142,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 53
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 2
   end
   object edtXb: TEdit
@@ -150,7 +149,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 53
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 3
   end
   object edtXc: TEdit
@@ -158,7 +156,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 53
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 4
   end
   object edtYa: TEdit
@@ -166,7 +163,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 181
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 5
   end
   object edtYb: TEdit
@@ -174,7 +170,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 181
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 6
   end
   object edtYc: TEdit
@@ -182,7 +177,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 181
     Width = 77
     Height = 21
-    NumbersOnly = True
     TabOrder = 7
   end
 end
