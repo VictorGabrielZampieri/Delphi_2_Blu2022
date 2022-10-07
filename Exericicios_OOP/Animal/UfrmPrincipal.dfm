@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'OOP'
   ClientHeight = 224
   ClientWidth = 383
-  Color = clBtnFace
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -44,5 +44,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 25
     Caption = 'Que Som Eu Fa'#231'o?'
     TabOrder = 1
+    OnClick = btnQueSomClick
   end
 end
