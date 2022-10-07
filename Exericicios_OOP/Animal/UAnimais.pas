@@ -4,6 +4,8 @@ interface
 
 type
   TEnumAnimal = (opCachorro, opGato, opPato);
+
+  //TObject - 1º Classe do delphi
   TAnimal = class // Classe abstrata ou classe base
   private
     FPatas: Byte;
