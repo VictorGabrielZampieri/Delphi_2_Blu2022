@@ -28,6 +28,7 @@ type
     edtYb: TEdit;
     edtYc: TEdit;
     procedure btnCalcularClick(Sender: TObject);
+    procedure btnCalcularOOPClick(Sender: TObject);
   private
     { Private declarations }
     procedure Principal;
@@ -50,6 +51,11 @@ implementation
 procedure TfrmPrincipal.btnCalcularClick(Sender: TObject);
 begin
   self.Principal;
+end;
+
+procedure TfrmPrincipal.btnCalcularOOPClick(Sender: TObject);
+begin
+  self.CalcularAreasOOP;
 end;
 
 procedure TfrmPrincipal.CalcularAreasOOP;

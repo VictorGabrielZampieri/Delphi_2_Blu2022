@@ -136,6 +136,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 25
     Caption = 'Calcular OOP'
     TabOrder = 1
+    OnClick = btnCalcularOOPClick
   end
   object edtXa: TEdit
     Left = 52
