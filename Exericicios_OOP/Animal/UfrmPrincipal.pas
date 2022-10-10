@@ -34,14 +34,16 @@ procedure TfrmPrincipal.btnQueSomClick(Sender: TObject);
 var
   xAnimal: TAnimal;
 begin
-   xAnimal  := nil;
+   xAnimal  := nil;//É o null(Java) para declara um objeto antes de instancia-lo
 
    try
      case TEnumAnimal(cbAnimais.ItemIndex) of
         opCachorro:
          xAnimal  :=  TCachorro.Create;
+
         opGato:
          xAnimal  := TGato.Create;
+
         opPato:
          xAnimal  := TPato.Create;
      end;

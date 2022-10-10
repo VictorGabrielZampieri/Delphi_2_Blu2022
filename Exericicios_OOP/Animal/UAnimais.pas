@@ -15,7 +15,7 @@ type
 
   public
     // Método Abstrato
-    function RetornarSom: String; virtual; abstract;
+    function RetornarSom: String; virtual; abstract;//Metodo abstrado nunca é declarado no pai apenas nos filhos
     property Patas: Byte Read GetPatas write SetPatas;
   end;
 
@@ -23,7 +23,7 @@ type
   private
   public
     constructor Create;
-    function RetornarSom: String; override;
+    function RetornarSom: String; override;//overrride sobreescrita do metodo da classe pai
   end;
 
   TGato = class(TAnimal)
@@ -61,7 +61,7 @@ begin
   Result  :='Au Au'
 end;
 
-Constructor TCachorro.Create;
+Constructor TCachorro.Create; //contrutor similar ao java
 begin
   FPatas  :=  4;
 end;

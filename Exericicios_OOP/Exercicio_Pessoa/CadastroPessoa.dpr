@@ -1,9 +1,9 @@
-program Animal;
+program CadastroPessoa;
 
 uses
   Vcl.Forms,
   UfrmPrincipal in 'UfrmPrincipal.pas' {frmPrincipal},
-  UAnimais in 'UAnimais.pas';
+  UPessoa in 'UPessoa.pas';
 
 {$R *.res}
 
