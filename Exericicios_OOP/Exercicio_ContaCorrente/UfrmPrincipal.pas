@@ -24,15 +24,18 @@ type
     Label4: TLabel;
     mmExtrato: TMemo;
     btnSair: TButton;
+    btnExibirDados: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnCadastroClick(Sender: TObject);
     procedure btnAlterarNomeClick(Sender: TObject);
     procedure btnSaqueClick(Sender: TObject);
     procedure btnDepositoClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
+    procedure btnExibirDadosClick(Sender: TObject);
   private
     { Private declarations }
     FContaCorrente : TContaCorrente;
+    procedure ExibirDados;
     procedure Cadastrar;
     procedure Liberar;
     procedure Bloquear;
@@ -66,6 +69,11 @@ begin
   Self.FazerDeposito;
 end;
 
+procedure TfrmPrincipal.btnExibirDadosClick(Sender: TObject);
+begin
+  Self.ExibirDados;
+end;
+
 procedure TfrmPrincipal.btnSairClick(Sender: TObject);
 begin
   Self.Sair;
@@ -78,7 +86,7 @@ end;
 
 procedure TfrmPrincipal.Sair;
 begin
-  FContaCorrente  := nil;
+  FreeAndNil(FContaCorrente);
   Self.Bloquear;
 end;
 
@@ -112,6 +120,13 @@ begin
     FContaCorrente := TContaCorrente.Create(xNumero, xNome);
   end;
   Self.Liberar;
+end;
+
+procedure TfrmPrincipal.ExibirDados;
+begin
+  mmExtrato.Lines.Add('Número : '+ IntToStr(FContaCorrente.Numero) +
+                      ' Nome : '+ FContaCorrente.Nome +
+                      ' Saldo: '+ CurrToStr(FContaCorrente.Saldo));
 end;
 
 procedure TfrmPrincipal.AlterarNome;
@@ -162,6 +177,7 @@ end;
 
 procedure TfrmPrincipal.Liberar;
 begin
+    btnExibirDados.Visible  := True;
     btnSair.Visible         := True;
     btnDeposito.Visible     := True;
     btnSaque.Visible        := True;
@@ -177,6 +193,7 @@ end;
 
 procedure TfrmPrincipal.Bloquear;
 begin
+    btnExibirDados.Visible  := False;
     edtNumeroConta.Text     := '';
     edtNomeUsuario.Text     := '';
     edtSaldo.Text           := '';

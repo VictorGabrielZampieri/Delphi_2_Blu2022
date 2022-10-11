@@ -167,4 +167,14 @@ object frmPrincipal: TfrmPrincipal
     Visible = False
     OnClick = btnSairClick
   end
+  object btnExibirDados: TButton
+    Left = 264
+    Top = 78
+    Width = 75
+    Height = 25
+    Caption = 'Exibir Dados'
+    TabOrder = 12
+    Visible = False
+    OnClick = btnExibirDadosClick
+  end
 end
