@@ -34,6 +34,8 @@ type
     { Private declarations }
     FContaCorrente : TContaCorrente;
     procedure Cadastrar;
+    procedure Liberar;
+    procedure Bloquear;
     procedure AlterarNome;
     procedure FazerDeposito;
     procedure FazerSaque;
@@ -48,17 +50,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TfrmPrincipal.AlterarNome;
-var
-  xNovoNome : String;
-begin
-  xNovoNome := edtNovoNome.Text;
-  FContaCorrente.AlterarNome(xNovoNome);
-  edtNomeUsuario.Text := FContaCorrente.Nome;
-  mmExtrato.Lines.Add('Nome Alterado Para: ' + xNovoNome);
-  edtNovoNome.Text  := '';
-end;
 
 procedure TfrmPrincipal.btnAlterarNomeClick(Sender: TObject);
 begin
@@ -85,6 +76,17 @@ begin
   Self.FazerSaque;
 end;
 
+procedure TfrmPrincipal.Sair;
+begin
+  FContaCorrente  := nil;
+  Self.Bloquear;
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeAndNil(FContaCorrente);
+end;
+
 procedure TfrmPrincipal.Cadastrar;
 var
   xNumero : Integer;
@@ -93,6 +95,7 @@ var
 begin
   xNumero := StrToIntDef(edtNumeroConta.Text,0);
   xNome   := edtNomeUsuario.Text;
+
   if (TryStrToCurr(edtSaldo.Text, xSaldo))  then
   begin
     if (xSaldo > 0) then
@@ -102,12 +105,63 @@ begin
         FContaCorrente := TContaCorrente.Create(xNumero, xNome, xSaldo);
       end;
   end
+
   else
   begin
-    edtSaldo.Text           := '0';
+    edtSaldo.Text  := '0';
     FContaCorrente := TContaCorrente.Create(xNumero, xNome);
   end;
+  Self.Liberar;
+end;
 
+procedure TfrmPrincipal.AlterarNome;
+var
+  xNovoNome : String;
+begin
+  xNovoNome := edtNovoNome.Text;
+  FContaCorrente.AlterarNome(xNovoNome);
+  edtNomeUsuario.Text := FContaCorrente.Nome;
+  mmExtrato.Lines.Add('Nome Alterado Para: ' + xNovoNome);
+  edtNovoNome.Text  := '';
+end;
+
+procedure TfrmPrincipal.FazerDeposito;
+var
+  xQntDeposito : Currency;
+begin
+  xQntDeposito    := StrToCurr(edtDeposito.Text);
+  if (xQntDeposito >= 1) then
+  begin
+    FContaCorrente.Depositar(xQntDeposito);
+    edtSaldo.Text := CurrToStr(FContaCorrente.Saldo);
+    mmExtrato.Lines.Add('Foi Aplicado: ' + CurrToStr(xQntDeposito) + ' R$');
+  end
+
+  else
+    ShowMessage('O Valor Do Deposito É Inválido!');
+    edtDeposito.Text := '';
+end;
+
+procedure TfrmPrincipal.FazerSaque;
+var
+  xQntSaque : Currency;
+begin
+  xQntSaque    := StrToCurr(edtSaque.Text);
+
+  if (FContaCorrente.Saldo > 0) and (xQntSaque <= FContaCorrente.Saldo) then
+  begin
+    FContaCorrente.Saque(xQntSaque);
+    edtSaldo.Text := CurrToStr(FContaCorrente.Saldo);
+    mmExtrato.Lines.Add('Foi Retirado: ' + CurrToStr(xQntSaque) + ' R$');
+  end
+
+  else
+    ShowMessage('Você Não Possui Saldo Suficiente Para Realizar Essa Ação!');
+    edtSaque.Text := '';
+end;
+
+procedure TfrmPrincipal.Liberar;
+begin
     btnSair.Visible         := True;
     btnDeposito.Visible     := True;
     btnSaque.Visible        := True;
@@ -121,49 +175,8 @@ begin
     edtSaldo.ReadOnly       := True;
 end;
 
-procedure TfrmPrincipal.FazerDeposito;
-var
-  xQntDeposito : Currency;
+procedure TfrmPrincipal.Bloquear;
 begin
-  xQntDeposito    := StrToCurr(edtDeposito.Text);
-  if (xQntDeposito >= 1) then
-  begin
-  FContaCorrente.Depositar(xQntDeposito);
-  edtSaldo.Text := CurrToStr(FContaCorrente.Saldo);
-  mmExtrato.Lines.Add('Foi Aplicado: ' + CurrToStr(xQntDeposito) + ' R$');
-  end
-
-  else
-  ShowMessage('O Valor Do Deposito É Inválido!');
-  edtDeposito.Text := '';
-end;
-
-procedure TfrmPrincipal.FazerSaque;
-var
-  xQntSaque : Currency;
-begin
-  xQntSaque    := StrToCurr(edtSaque.Text);
-  if (FContaCorrente.Saldo > 0) and (xQntSaque <= FContaCorrente.Saldo) then
-  begin
-  FContaCorrente.Saque(xQntSaque);
-  edtSaldo.Text := CurrToStr(FContaCorrente.Saldo);
-  mmExtrato.Lines.Add('Foi Retirado: ' + CurrToStr(xQntSaque) + ' R$');
-  end
-
-  else
-  ShowMessage('Você Não Possui Saldo Suficiente Para Realizar Essa Ação!');
-  edtSaque.Text := '';
-end;
-
-procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FreeAndNil(FContaCorrente);
-end;
-
-procedure TfrmPrincipal.Sair;
-begin
-  FContaCorrente  := nil;
-
     edtNumeroConta.Text     := '';
     edtNomeUsuario.Text     := '';
     edtSaldo.Text           := '';
