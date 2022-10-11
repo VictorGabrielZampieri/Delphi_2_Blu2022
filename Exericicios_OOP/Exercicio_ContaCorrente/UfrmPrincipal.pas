@@ -178,6 +178,7 @@ begin
     edtNumeroConta.ReadOnly := False;
     edtNomeUsuario.ReadOnly := False;
     edtSaldo.ReadOnly       := False;
+    mmExtrato.Lines.Clear;
 end;
 
 end.
