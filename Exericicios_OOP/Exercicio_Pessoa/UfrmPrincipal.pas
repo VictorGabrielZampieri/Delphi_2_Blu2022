@@ -21,7 +21,6 @@ type
   private
     { Private declarations }
     procedure Principal;
-    procedure ExibirDados;
   public
     { Public declarations }
   end;
@@ -41,11 +40,6 @@ uses
 procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
 begin
   self.Principal;
-end;
-
-procedure TfrmPrincipal.ExibirDados;
-begin
-
 end;
 
 procedure TfrmPrincipal.Principal;
