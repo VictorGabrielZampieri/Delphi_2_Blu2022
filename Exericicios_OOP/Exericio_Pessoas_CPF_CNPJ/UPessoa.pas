@@ -7,6 +7,7 @@ type
     private
       FNome : String;
       FEndereco : String;
+
     function GetEndereco: String;
     function GetNome: String;
 
@@ -22,28 +23,32 @@ type
   TPessoaJuridica = Class(TPessoa)
     private
       FCNPJ : String;
-      FIE   : String;
+      FFIE   : String;
     function GetCNPJ: String;
     function GetFIE: String;
+
     procedure SetCNPJ(const Value: String);
     procedure SetFIE(const Value: String);
      public
        function CNPJ_Valido : Boolean;
+
        property CNPJ: String Read GetCNPJ write SetCNPJ;
-       property FFIE: String Read GetFIE write SetFIE;
+       property FIE: String Read GetFIE write SetFIE;
   End;
 
   TPessoaFisica = Class(TPessoa)
     private
-      FCPF : Double;
+      FCPF : String;
       FIdade  : Byte;
-    function GetCPF: Double;
+    function GetCPF: String;
     function GetIdade: Byte;
-    procedure SetCPF(const Value: Double);
+
+    procedure SetCPF(const Value: String);
     procedure SetIdade(const Value: Byte);
      public
        function CPF_Valido : Boolean;
-       property xCPF: Double Read GetCPF write SetCPF;
+
+       property CPF: String Read GetCPF write SetCPF;
        property Idade: Byte Read GetIdade write SetIdade;
   End;
 implementation
@@ -81,17 +86,16 @@ end;
 { TPessoaFisica }
 
 function TPessoaFisica.CPF_Valido: Boolean;
-var  xCPF,dig10, dig11: string;
+var  dig10, dig11, c1, c2: string;
     s, i, r, peso: integer;
 begin
-  xCPF := FloatToStr(FCPF);
 
-  if ((xCPF = '00000000000') or (xCPF = '11111111111') or
-      (xCPF = '22222222222') or (xCPF = '33333333333') or
-      (xCPF = '44444444444') or (xCPF = '55555555555') or
-      (xCPF = '66666666666') or (xCPF = '77777777777') or
-      (xCPF = '88888888888') or (xCPF = '99999999999') or
-      (length(xCPF) <> 11))
+  if ((CPF = '00000000000') or (CPF = '11111111111') or
+      (CPF = '22222222222') or (CPF = '33333333333') or
+      (CPF = '44444444444') or (CPF = '55555555555') or
+      (CPF = '66666666666') or (CPF = '77777777777') or
+      (CPF = '88888888888') or (CPF = '99999999999') or
+      (length(CPF) <> 11))
      then begin
               CPF_Valido := false;
               exit;
@@ -103,7 +107,7 @@ begin
     for i := 1 to 9 do
     begin
 
-      s := s + (StrToInt(xCPF[i]) * peso);
+      s := s + (StrToInt(CPF[i]) * peso);
       peso := peso - 1;
     end;
     r := 11 - (s mod 11);
@@ -115,7 +119,7 @@ begin
     peso := 11;
     for i := 1 to 10 do
     begin
-      s := s + (StrToInt(xCPF[i]) * peso);
+      s := s + (StrToInt(CPF[i]) * peso);
       peso := peso - 1;
     end;
     r := 11 - (s mod 11);
@@ -123,16 +127,22 @@ begin
        then dig11 := '0'
     else str(r:1, dig11);
 
-    if ((dig10 = xCPF[10]) and (dig11 = xCPF[11]))
-       then CPF_Valido := true
-    else CPF_Valido := false;
+    c1  := CPF[10];
+    c2  := CPF[11];
+    if ((dig10 = CPF[10]) and (dig11 = CPF[11])) then
+    begin
+     CPF_Valido := true;
+    end
+
+    else
+     CPF_Valido := false;
   except
     CPF_Valido := false
   end;
 end;
 
 
-function TPessoaFisica.GetCPF: Double;
+function TPessoaFisica.GetCPF: String;
 begin
   Result := FCPF;
 end;
@@ -142,7 +152,7 @@ begin
   Result := FIdade;
 end;
 
-procedure TPessoaFisica.SetCPF(const Value: Double);
+procedure TPessoaFisica.SetCPF(const Value: String);
 begin
   FCPF := Value;
 end;
