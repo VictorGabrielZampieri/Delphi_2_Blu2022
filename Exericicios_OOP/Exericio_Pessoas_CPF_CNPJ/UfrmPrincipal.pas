@@ -30,8 +30,8 @@ type
     procedure btnNovaPessoaClick(Sender: TObject);
   private
     { Private declarations }
-    TxPessoaFisica   : TPessoaFisica;
-    TxPessoaJuridica : TPessoaJuridica;
+    FPessoaFisica   : TPessoaFisica;
+    FPessoaJuridica : TPessoaJuridica;
     xControle : Boolean;
     procedure ExibirEditPessoaFisica(var aControle : Boolean);
     procedure ExibirEditPessoaJuridica(var aControle : Boolean);
@@ -91,14 +91,14 @@ begin
   xCPF      := edtCpf_Cnpj.Text;
   xIdade    := StrToInt(edtIdade_Fie.Text);
 
-  TxPessoaFisica := TPessoaFisica.Create;
+  FPessoaFisica := TPessoaFisica.Create;
 
-    TxPessoaFisica.Nome     := xNome;
-    TxPessoaFisica.Endereco := xEndereco;
-    TxPessoaFisica.CPF      := xCPF;
-    TxPessoaFisica.Idade    := xIdade;
+    FPessoaFisica.Nome     := xNome;
+    FPessoaFisica.Endereco := xEndereco;
+    FPessoaFisica.CPF      := xCPF;
+    FPessoaFisica.Idade    := xIdade;
 
-    xValido := TxPessoaFisica.CPF_Valido;
+    xValido := FPessoaFisica.CPF_Valido;
     if not (xValido) then
     begin
       ShowMessage('CPF Invalido');
@@ -127,14 +127,14 @@ begin
   xCNPJ     := edtCpf_Cnpj.Text;
   xFIE      := edtIdade_Fie.Text;
 
-  TxPessoaJuridica := TPessoaJuridica.Create;
+  FPessoaJuridica := TPessoaJuridica.Create;
 
-    TxPessoaJuridica.Nome     := xNome;
-    TxPessoaJuridica.Endereco := xEndereco;
-    TxPessoaJuridica.CNPJ     := xCNPJ;
-    TxPessoaJuridica.FIE      := xFIE;
+    FPessoaJuridica.Nome     := xNome;
+    FPessoaJuridica.Endereco := xEndereco;
+    FPessoaJuridica.CNPJ     := xCNPJ;
+    FPessoaJuridica.FIE      := xFIE;
 
-   xValido := TxPessoaJuridica.CNPJ_Valido;
+   xValido := FPessoaJuridica.CNPJ_Valido;
     if not (xValido) then
     begin
       ShowMessage('CNPJ Invalido');
@@ -173,13 +173,13 @@ var
 begin
     if (xControle = True) then
     begin
-     xMensagem := TxPessoaFisica.Gravar(TxPessoaFisica);
+     xMensagem := FPessoaFisica.Gravar(FPessoaFisica);
      mmExibirPessoa.Lines.Add(xMensagem);
     end
 
     else
     begin
-     xMensagem := TxPessoaJuridica.Gravar(TxPessoaJuridica);
+     xMensagem := FPessoaJuridica.Gravar(FPessoaJuridica);
      mmExibirPessoa.Lines.Add(xMensagem);
     end;
 
@@ -219,14 +219,14 @@ end;
 
 procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   FreeAndNil(TxPessoaFisica);
-   FreeAndNil(TxPessoaJuridica);
+   FreeAndNil(FPessoaFisica);
+   FreeAndNil(FPessoaJuridica);
 end;
 
 procedure TfrmPrincipal.LimparPessoas;
 begin
-  FreeAndNil(TxPessoaFisica);
-  FreeAndNil(TxPessoaJuridica);
+  FreeAndNil(FPessoaFisica);
+  FreeAndNil(FPessoaJuridica);
   edtNome.Text              := '';
   edtEndereco.Text          := '';
   edtCpf_Cnpj.Text          := '';
