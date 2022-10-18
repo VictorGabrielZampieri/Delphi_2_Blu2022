@@ -86,7 +86,7 @@ end;
 { TPessoaFisica }
 
 function TPessoaFisica.CPF_Valido: Boolean;
-var  dig10, dig11, c1, c2: string;
+var  dig10, dig11 : string;
     s, i, r, peso: integer;
 begin
 
@@ -127,8 +127,6 @@ begin
        then dig11 := '0'
     else str(r:1, dig11);
 
-    c1  := CPF[10];
-    c2  := CPF[11];
     if ((dig10 = CPF[10]) and (dig11 = CPF[11])) then
     begin
      CPF_Valido := true;
