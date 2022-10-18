@@ -71,7 +71,7 @@ end;
 
 function TBomba.GetQuantidade_Combustivel: Double;
 begin
-  Result := FValorCombustivel;
+  Result := FQuantidadeCombustivel;
 end;
 
 function TBomba.GetTipo_Combustivel: String;

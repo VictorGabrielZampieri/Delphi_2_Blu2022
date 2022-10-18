@@ -166,8 +166,9 @@ object frmPrincipal: TfrmPrincipal
     Top = 32
     Width = 185
     Height = 161
+    Lines.Strings = (
+      '---------------------------')
     TabOrder = 10
-    Visible = False
   end
   object btnAbastecer: TButton
     Left = 359
@@ -197,5 +198,6 @@ object frmPrincipal: TfrmPrincipal
     Caption = 'Abastecer Carro'
     TabOrder = 13
     Visible = False
+    OnClick = btnAbastecerCarroClick
   end
 end
