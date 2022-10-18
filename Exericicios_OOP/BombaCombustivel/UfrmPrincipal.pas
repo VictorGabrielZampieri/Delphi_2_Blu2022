@@ -34,6 +34,7 @@ type
     procedure btnSegundaBombaClick(Sender: TObject);
     procedure btnTerceiraBombaClick(Sender: TObject);
     procedure btnQuartaBombaClick(Sender: TObject);
+    procedure btnCadastrarClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -54,7 +55,8 @@ type
     procedure ZQuartaBomba(var FControle : Integer);
     ////////////////////////////////////////////////
 
-     //Cadastro e atualizão   da classe Bomba
+     //Cadastro, tipo de combustivel e atualizão da classe Bomba
+     function RetornarTipo : String;
      procedure Cadastrar;
 
      ///////////////////
@@ -79,13 +81,70 @@ implementation
 procedure TfrmPrincipal.Cadastrar;
 var
   xTipo : String;
+  xValor : Currency;
+  xQuantidade : Double;
 begin
 
+  if (btnCadastrar.Caption = 'Cadastrar') then
+  begin
+  xTipo := Self.RetornarTipo;
+  xValor := StrToCurr(edtValorLitro.Text);
+  xQuantidade := StrToFloat(edtQuantidadeCombustivel.Text);
+
+   if (FControle = 1) then //Bomba 1
+   begin
+//     FPrimeira_Bomba := nil;
+//     FPrimeira_Bomba := TBomba.Create;
+//
+//     FPrimeira_Bomba.Tipo_Combustivel         := xTipo;
+//     FPrimeira_Bomba.Valor_Combustivel        := xValor;
+//     FPrimeira_Bomba.Quantidade_Combustivel   := xQuantidade;
+        btnPrimeiraBomba.Caption := 'Bomba 1';
+   end
+
+   else if (FControle = 2) then //Bomba 2
+        begin
+//           FSegunda_Bomba := nil;
+//           FSegunda_Bomba := TBomba.Create;
+//
+//           FSegunda_Bomba.Tipo_Combustivel         := xTipo;
+//           FSegunda_Bomba.Valor_Combustivel        := xValor;
+//           FSegunda_Bomba.Quantidade_Combustivel   := xQuantidade;
+              btnSegundaBomba.Caption := 'Bomba 2';
+        end
+
+   else if (FControle = 3) then //Bomba 3
+         begin
+//           FTerceira_Bomba := nil;
+//           FTerceira_Bomba := TBomba.Create;
+//
+//           FTerceira_Bomba.Tipo_Combustivel         := xTipo;
+//           FTerceira_Bomba.Valor_Combustivel        := xValor;
+//           FTerceira_Bomba.Quantidade_Combustivel   := xQuantidade;
+             btnTerceiraBomba.Caption := 'Bomba 3';
+        end
+
+   else if (FControle = 4) then //Bomba 4
+        begin
+//          FQuarta_Bomba := nil;
+//          FQuarta_Bomba := TBomba.Create;
+//
+//          FQuarta_Bomba.Tipo_Combustivel         := xTipo;
+//          FQuarta_Bomba.Valor_Combustivel        := xValor;
+//          FQuarta_Bomba.Quantidade_Combustivel   := xQuantidade;
+             btnQuartaBomba.Caption := 'Bomba 4';
+        end;
+  end;
 end;
 
 procedure TfrmPrincipal.btnAbastecerClick(Sender: TObject);
 begin
   Self.ExibirAbastecimento;
+end;
+
+procedure TfrmPrincipal.btnCadastrarClick(Sender: TObject);
+begin
+  Self.Cadastrar;
 end;
 
 procedure TfrmPrincipal.btnConfiguracoesClick(Sender: TObject);
@@ -151,6 +210,22 @@ begin
 
   else
    ShowMessage('Essa Bomba Não foi Cadastrada!')
+end;
+
+function TfrmPrincipal.RetornarTipo: String;
+begin
+  case TEnumTipoCombustivel(cmTiposCombustiveis.ItemIndex) of
+     opGasolina :
+      Result := 'Gasolina';
+
+     opAlchool :
+      Result := 'Alchool';
+
+     opDisel :
+      Result := 'Dissel';
+      else
+        ShowMessage('Opção Inválida');
+  end;
 end;
 
 procedure TfrmPrincipal.ExibirCadastro;

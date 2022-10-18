@@ -159,6 +159,7 @@ object frmPrincipal: TfrmPrincipal
     Caption = 'Cadastrar'
     TabOrder = 9
     Visible = False
+    OnClick = btnCadastrarClick
   end
   object mmBomba: TMemo
     Left = 19
