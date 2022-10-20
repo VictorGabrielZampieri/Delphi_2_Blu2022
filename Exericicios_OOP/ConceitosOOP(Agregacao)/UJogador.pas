@@ -9,14 +9,17 @@ type
       FNome : String;
       FIdade : Integer;
       FPosicao : String;
+
     function GetID: Integer;
     function GetIdade: Integer;
     function GetNome: String;
     function GetPosicao: String;
+
     procedure SetID(const Value: Integer);
     procedure SetIdade(const Value: Integer);
     procedure SetNome(const Value: String);
     procedure SetPosicao(const Value: String);
+
     public
        property ID: Integer Read GetID write SetID;
        property Idade: Integer Read GetIdade write SetIdade;
