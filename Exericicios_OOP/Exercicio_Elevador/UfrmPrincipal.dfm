@@ -84,6 +84,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 25
     Caption = 'Selecionar'
     TabOrder = 1
+    OnClick = btnSelecionarClick
   end
   object btnDescer: TButton
     Left = 112

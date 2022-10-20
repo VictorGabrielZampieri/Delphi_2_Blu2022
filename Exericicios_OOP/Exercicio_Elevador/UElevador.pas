@@ -45,7 +45,7 @@ end;
 
 procedure TElevador.Descer(aAndar: Integer);
 begin
-  if Not (aAndar < 0) then
+  if Not (aAndar >= 0) then
   begin
     raise Exception.Create('Não é Possível Descer Mais');
   end
@@ -96,7 +96,7 @@ end;
 
 procedure TElevador.Sobe(aAndar: Integer);
 begin
-  if Not (aAndar > FTotalAndares) then
+  if Not (aAndar <= FTotalAndares) then
   begin
     raise Exception.Create('Não é Possível Subir Mais');
   end
