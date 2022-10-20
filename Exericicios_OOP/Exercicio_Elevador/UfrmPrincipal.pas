@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, UElevador;
 
 type
   TfrmPrincipal = class(TForm)
@@ -14,8 +14,16 @@ type
     btnSelecionar: TButton;
     lblPessoas: TLabel;
     Label3: TLabel;
+    btnDescer: TButton;
+    btnEntrar: TButton;
+    btnCriarElevador: TButton;
+    procedure btnCriarElevadorClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
+    FElevador : TElevador;
+    procedure CriarElevador;
+    procedure PopularAndares;
   public
     { Public declarations }
   end;
@@ -26,5 +34,39 @@ var
 implementation
 
 {$R *.dfm}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.btnCriarElevadorClick(Sender: TObject);
+begin
+  Self.CriarElevador;
+  Self.PopularAndares;
+  ShowMessage('Elevador Instalado!!!');
+end;
+
+procedure TfrmPrincipal.CriarElevador;
+var
+  xCapacidade : Integer;
+  xTotalAndares : Integer;
+begin
+  xCapacidade   := StrToInt(inputBox('Capacidade' ,'Informe a Capaciadade Maxima de Pessoas no Elevador', ''));
+  xTotalAndares := StrToInt(inputBox('Andares' ,'Informe Quantos Andares o Prédio Possui', ''));
+  FElevador := TElevador.Create(xCapacidade, xTotalAndares);
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeAndNil(FElevador);
+end;
+
+procedure TfrmPrincipal.PopularAndares;
+var
+  I : Integer;
+begin
+  for I := 0 to (FElevador.Total_Andares-1) do
+  begin
+    cmAndares.Items.Add((I+1).ToString + 'º Andar');
+  end;
+end;
 
 end.

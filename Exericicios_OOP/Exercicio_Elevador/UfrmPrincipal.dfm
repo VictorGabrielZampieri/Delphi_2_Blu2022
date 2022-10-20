@@ -11,14 +11,15 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object lblAndar: TLabel
-    Left = 112
+    Left = 224
     Top = 40
-    Width = 76
+    Width = 68
     Height = 25
-    Caption = 'Andar :'
+    Caption = 'T'#233'rreo'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -21
@@ -27,11 +28,11 @@ object frmPrincipal: TfrmPrincipal
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 200
+    Left = 129
     Top = 40
-    Width = 68
+    Width = 76
     Height = 25
-    Caption = 'T'#233'rreo'
+    Caption = 'Andar :'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -21
@@ -83,5 +84,30 @@ object frmPrincipal: TfrmPrincipal
     Height = 25
     Caption = 'Selecionar'
     TabOrder = 1
+  end
+  object btnDescer: TButton
+    Left = 112
+    Top = 408
+    Width = 89
+    Height = 25
+    Caption = 'Descer Pessoas'
+    TabOrder = 2
+  end
+  object btnEntrar: TButton
+    Left = 224
+    Top = 408
+    Width = 89
+    Height = 25
+    Caption = 'Entrar Pessoas'
+    TabOrder = 3
+  end
+  object btnCriarElevador: TButton
+    Left = 160
+    Top = 229
+    Width = 75
+    Height = 25
+    Caption = 'Criar Elevador'
+    TabOrder = 4
+    OnClick = btnCriarElevadorClick
   end
 end
