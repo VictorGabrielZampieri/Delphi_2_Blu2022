@@ -71,8 +71,8 @@ end;
 
 procedure TfrmPrincipal.Bloquear;
 begin
-    btnDescer.Visible  := False;
-    btnEntrar.Visible  := False;
+    btnDescer.Enabled  := False;
+    btnEntrar.Enabled  := False;
     Label3.Visible     := False;
     lblPessoas.Visible := False;
 end;
@@ -99,9 +99,9 @@ end;
 
 procedure TfrmPrincipal.btnSelecionarClick(Sender: TObject);
 begin
-  if (cmAndares.ItemIndex > FElevador.Andar_Atual) then
+  if (cmAndares.ItemIndex < FElevador.Andar_Atual) then
     Self.Descer
-  else if (cmAndares.ItemIndex < FElevador.Andar_Atual) then
+  else if (cmAndares.ItemIndex > FElevador.Andar_Atual) then
     Self.Subir
   else
     ShowMessage('Selecione um Andar diferente!');
@@ -128,7 +128,15 @@ procedure TfrmPrincipal.Descer;
 begin
   Self.FechaPorta;
   FElevador.Descer(cmAndares.ItemIndex);
-  lblAndar.Caption := FElevador.Andar_Atual.ToString + 'º';
+
+  if (FElevador.Andar_Atual = 0) then
+  begin
+    lblAndar.Caption := 'Térreo';
+  end
+  else
+  begin
+    lblAndar.Caption := FElevador.Andar_Atual.ToString + 'º';
+  end;
 end;
 
 procedure TfrmPrincipal.EntrarPessoas;
@@ -172,8 +180,8 @@ procedure TfrmPrincipal.Liberar;
 begin
   if not(FElevador = nil) then
   begin
-    btnDescer.Visible        := True;
-    btnEntrar.Visible        := True;
+    btnDescer.Enabled        := True;
+    btnEntrar.Enabled        := True;
     Label3.Visible           := True;
     lblPessoas.Visible       := True;
     btnCriarElevador.Visible := False;
