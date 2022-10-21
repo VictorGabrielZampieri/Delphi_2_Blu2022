@@ -22,7 +22,7 @@ type
     property Capacidade_Max: Integer Read GetCapacidadeMax ;
     property QuantidadePessoas: Integer Read GetQuantidadePessoas;
     procedure Entra(aQtndEntrando : Integer);
-    procedure Sai(aQtndSaindo : Integer);
+    procedure Sair(aQtndSaindo : Integer);
     procedure Sobe(aAndar : Integer);
     procedure Descer(aAndar : Integer);
   end;
@@ -56,9 +56,13 @@ end;
 
 procedure TElevador.Entra(aQtndEntrando: Integer);
 begin
-  if not (aQtndEntrando < (FCapacidadeMaxima - FQuantidadePessoas))  then
+  if not (aQtndEntrando <= (FCapacidadeMaxima - FQuantidadePessoas)) then
   begin
     raise Exception.Create('Quantidade Maxima já alcançada');
+  end
+  else if not (aQtndEntrando > 0)  then
+  begin
+   raise Exception.Create('Valor Inválido');
   end
   else
       FQuantidadePessoas := FQuantidadePessoas + aQtndEntrando;
@@ -84,12 +88,17 @@ begin
   Result := FTotalAndares;
 end;
 
-procedure TElevador.Sai(aQtndSaindo: Integer);
+procedure TElevador.Sair(aQtndSaindo: Integer);
 begin
-  if not (aQtndSaindo < (FCapacidadeMaxima - FQuantidadePessoas))  then
+  if not (aQtndSaindo <= FQuantidadePessoas) then
   begin
     raise Exception.Create('Não Há niguem no elevador para sair');
   end
+  else if not (aQtndSaindo > 0)  then
+  begin
+   raise Exception.Create('Valor Inválido');
+  end
+
   else
       FQuantidadePessoas := FQuantidadePessoas - aQtndSaindo;
 end;
