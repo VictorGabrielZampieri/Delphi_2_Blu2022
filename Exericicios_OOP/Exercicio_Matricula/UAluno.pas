@@ -78,13 +78,14 @@ function TAluno.Media(aPrimeiraProva, aSegundaProva,
   aTrabalho: Double): Double;
 var
   xMedia : Double;
-  xNotas : Double;
   xPesoProvas : Double;
   xPesoTrabalho : Double;
 begin
-  xMedia := aPrimeiraProva + aSegundaProva;
   xPesoProvas := 2.5;
   xPesoTrabalho := 2;
+
+  xMedia := ((aPrimeiraProva * xPesoProvas)+(aSegundaProva * xPesoProvas)+(aTrabalho * xPesoTrabalho))/(xPesoProvas+xPesoProvas*xPesoTrabalho);
+  Result := xMedia;
 
 end;
 
