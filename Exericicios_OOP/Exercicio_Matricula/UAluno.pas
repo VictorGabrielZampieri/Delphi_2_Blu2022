@@ -28,11 +28,9 @@ type
     procedure SetSegundaNota(const Value: Double);
     procedure SetTrabalho(const Value: Double);
   public
+    destructor destroy; override;
     property Matricula : Integer  Read GetMatricula write SetMatricula;
     property Nome : String  Read GetNome write SetNome;
-    {classe  É uma representacao de um objeto do mundo real
-     Atri e proprie são características únicas da classe
-    }
     property PrimeiraNota : Double  Read GetPrimeiraNota write SetPrimeiraNota;
     property SegundaNota  : Double  Read GetSegundaNota write SetSegundaNota;
     property Trabalho  : Double  Read GetTrabalho write SetTrabalho;
@@ -43,6 +41,9 @@ type
   end;
 
 implementation
+
+uses
+  System.SysUtils;
 
 { TAluno }
 
@@ -57,6 +58,12 @@ begin
 
    Result := 10 - xMedia;
 
+end;
+
+destructor TAluno.destroy;
+begin
+  FreeAndNil(FDisciplina);
+  inherited;
 end;
 
 function TAluno.GetDisciplina: TDisciplina;
@@ -91,7 +98,10 @@ begin
   Result := FTrabalho;
 end;
 
-
+ {
+  Coesão é o princípio Orientado a Objetos mais associado a garantir
+  que uma classe seja projetada com um propósito único e bem focado
+ }
 
 function TAluno.Media: Double;
 var
@@ -132,6 +142,10 @@ begin
   FSegundaNota  := Value;
 end;
 
+{
+  é o princípio pelo qual duas ou mais classes derivadas da mesma superclasse
+  podem invocar métodos que têm a mesma assinatura, mas comportamentos distintos.
+}
 procedure TAluno.SetTrabalho(const Value: Double);
 begin
   FTrabalho  := Value;
