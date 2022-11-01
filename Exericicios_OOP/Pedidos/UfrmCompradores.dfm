@@ -26,24 +26,24 @@ object frmCompredores: TfrmCompredores
   object Label2: TLabel
     Left = 32
     Top = 120
-    Width = 26
+    Width = 27
     Height = 13
-    Caption = 'nome'
+    Caption = 'Nome'
     FocusControl = DBEdit2
   end
   object Label3: TLabel
     Left = 32
     Top = 160
-    Width = 27
+    Width = 29
     Height = 13
-    Caption = 'cargo'
+    Caption = 'Cargo'
     FocusControl = DBEdit3
   end
   object DBGrid1: TDBGrid
-    Left = 32
+    Left = 24
     Top = 256
-    Width = 441
-    Height = 89
+    Width = 474
+    Height = 105
     DataSource = DataSource1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
