@@ -21,6 +21,7 @@ type
     Label4: TLabel;
     Label5: TLabel;
     imgFundo: TImage;
+    procedure imgCompradoresClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,5 +34,15 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UfrmCompradores;
+
+procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
+begin
+  if not Assigned(frmCompredores) then
+    frmCompredores := frmCompredores.Create(self);
+
+    frmCompredores.Show;
+end;
 
 end.
