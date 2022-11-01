@@ -22,6 +22,9 @@ type
     Label5: TLabel;
     imgFundo: TImage;
     procedure imgCompradoresClick(Sender: TObject);
+    procedure imgFornecedoresClick(Sender: TObject);
+    procedure imgUnidadeMedidaClick(Sender: TObject);
+    procedure imgProdutosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmCompradores;
+uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos;
 
 procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
 begin
@@ -43,6 +46,30 @@ begin
     frmCompredores := frmCompredores.Create(self);
 
     frmCompredores.Show;
+end;
+
+procedure TfrmPrincipal.imgFornecedoresClick(Sender: TObject);
+begin
+  if not Assigned(frmFornecedores) then
+    frmFornecedores := frmFornecedores.Create(self);
+
+    frmFornecedores.Show;
+end;
+
+procedure TfrmPrincipal.imgProdutosClick(Sender: TObject);
+begin                                                    //////
+  if not Assigned(frmProduto) then
+    frmProduto := frmProduto.Create(self);
+
+    frmProduto.Show;
+end;
+
+procedure TfrmPrincipal.imgUnidadeMedidaClick(Sender: TObject);
+begin
+  if not Assigned(frmUnidadeMedidas) then
+    frmUnidadeMedidas := frmUnidadeMedidas.Create(self);
+
+    frmUnidadeMedidas.Show;
 end;
 
 end.

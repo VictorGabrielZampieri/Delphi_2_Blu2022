@@ -3,7 +3,7 @@ object frmCompredores: TfrmCompredores
   Top = 0
   Caption = 'Compradores'
   ClientHeight = 382
-  ClientWidth = 648
+  ClientWidth = 506
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -40,9 +40,9 @@ object frmCompredores: TfrmCompredores
     FocusControl = DBEdit3
   end
   object DBGrid1: TDBGrid
-    Left = 24
-    Top = 272
-    Width = 553
+    Left = 32
+    Top = 256
+    Width = 441
     Height = 89
     DataSource = DataSource1
     Font.Charset = DEFAULT_CHARSET
@@ -61,16 +61,19 @@ object frmCompredores: TfrmCompredores
       item
         Expanded = False
         FieldName = 'id_comprador'
+        Width = 100
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'nome'
+        Width = 175
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cargo'
+        Width = 175
         Visible = True
       end>
   end
@@ -113,12 +116,13 @@ object frmCompredores: TfrmCompredores
     IndexFieldNames = 'id_comprador'
     Connection = dmPedidos.fdConexao
     TableName = 'sistema_compra.comprador'
-    Left = 528
-    Top = 72
+    Left = 424
+    Top = 168
     object FDTable1id_comprador: TFDAutoIncField
       FieldName = 'id_comprador'
       Origin = 'id_comprador'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDTable1nome: TStringField
       FieldName = 'nome'
@@ -135,7 +139,7 @@ object frmCompredores: TfrmCompredores
   end
   object DataSource1: TDataSource
     DataSet = FDTable1
-    Left = 408
+    Left = 368
     Top = 96
   end
 end

@@ -1885,7 +1885,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 113
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 605
     object imgProdutos: TImage
       Left = 28
       Top = 16
@@ -1917,6 +1916,7 @@ object frmPrincipal: TfrmPrincipal
         004145DC27344436790568D4B7596DAC827F0574F2463BF9B6FE06B901D2E3BA
         A46EEB388C233320A053C6EFD6DC5D9180227D758555A913DE03450FC07CC65A
         A92E7D8C06BD070C817E03E4F8DE31A18C29F20000000049454E44AE426082}
+      OnClick = imgProdutosClick
     end
     object imgCompradores: TImage
       Left = 122
@@ -1984,6 +1984,7 @@ object frmPrincipal: TfrmPrincipal
         40A9EE18EF02C77C16466F45DD059E8F579D2B1A9CC5BFB928104AE4237026C7
         7E4E64A7C0DA1CC7596E36BB20E0641405E28EC40BFC0159BBB031073F9E4500
         00000049454E44AE426082}
+      OnClick = imgFornecedoresClick
     end
     object imgUnidadeMedida: TImage
       Left = 360
@@ -2020,6 +2021,7 @@ object frmPrincipal: TfrmPrincipal
         5F25A081A05130103A3A9581D6D0621C83FDD826D1BF78121A580A4EC69D0F7D
         9CCC44753E1968D3D9FAFFB94E69201FA2DD148A7A242DE2BC8C8281D091F706
         FE02502DD4313698E0050000000049454E44AE426082}
+      OnClick = imgUnidadeMedidaClick
     end
     object imgPedidos: TImage
       Left = 464
