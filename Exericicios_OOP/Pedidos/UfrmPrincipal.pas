@@ -25,6 +25,7 @@ type
     procedure imgFornecedoresClick(Sender: TObject);
     procedure imgUnidadeMedidaClick(Sender: TObject);
     procedure imgProdutosClick(Sender: TObject);
+    procedure imgPedidosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +39,7 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos;
+uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos, UfrmPedidos;
 
 procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
 begin
@@ -56,8 +57,16 @@ begin
     frmFornecedores.Show;
 end;
 
+procedure TfrmPrincipal.imgPedidosClick(Sender: TObject);
+begin
+  if not Assigned(frmPedidos) then
+    frmPedidos := frmPedidos.Create(self);
+
+    frmPedidos.Show;
+end;
+
 procedure TfrmPrincipal.imgProdutosClick(Sender: TObject);
-begin                                                    //////
+begin
   if not Assigned(frmProduto) then
     frmProduto := frmProduto.Create(self);
 
