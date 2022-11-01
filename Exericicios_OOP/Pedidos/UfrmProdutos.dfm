@@ -26,30 +26,17 @@ object frmProduto: TfrmProduto
   object Label2: TLabel
     Left = 56
     Top = 136
-    Width = 45
+    Width = 46
     Height = 13
-    Caption = 'descricao'
+    Caption = 'Descricao'
     FocusControl = DBEdit2
   end
   object Label3: TLabel
     Left = 56
-    Top = 208
-    Width = 79
+    Top = 200
+    Width = 91
     Height = 13
-    Caption = 'Unidade_medida'
-  end
-  object DBGrid1: TDBGrid
-    Left = 56
-    Top = 312
-    Width = 320
-    Height = 97
-    DataSource = DataSource1
-    TabOrder = 0
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    Caption = 'Unidade de Medida'
   end
   object DBNavigator1: TDBNavigator
     Left = 56
@@ -57,7 +44,7 @@ object frmProduto: TfrmProduto
     Width = 240
     Height = 25
     DataSource = DataSource1
-    TabOrder = 1
+    TabOrder = 0
   end
   object DBEdit1: TDBEdit
     Left = 56
@@ -66,7 +53,7 @@ object frmProduto: TfrmProduto
     Height = 21
     DataField = 'id_produto'
     DataSource = DataSource1
-    TabOrder = 2
+    TabOrder = 1
   end
   object DBEdit2: TDBEdit
     Left = 56
@@ -75,7 +62,57 @@ object frmProduto: TfrmProduto
     Height = 21
     DataField = 'descricao'
     DataSource = DataSource1
+    TabOrder = 2
+  end
+  object DBGrid1: TDBGrid
+    Left = 56
+    Top = 272
+    Width = 529
+    Height = 137
+    DataSource = DataSource1
     TabOrder = 3
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'id_produto'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'descricao'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'idunidade_medida'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'LookupUnidadeMedida'
+        Title.Caption = 'Unidade Medida'
+        Width = 150
+        Visible = True
+      end>
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 56
+    Top = 219
+    Width = 145
+    Height = 21
+    DataField = 'idunidade_medida'
+    DataSource = DataSource1
+    KeyField = 'id_unidade'
+    ListField = 'descricao'
+    ListSource = DataSource2
+    TabOrder = 4
   end
   object DataSource1: TDataSource
     DataSet = FDTable1
@@ -104,5 +141,38 @@ object frmProduto: TfrmProduto
       FieldName = 'idunidade_medida'
       Origin = 'idunidade_medida'
     end
+    object FDTable1LookupUnidadeMedida: TStringField
+      FieldKind = fkLookup
+      FieldName = 'LookupUnidadeMedida'
+      LookupDataSet = FDTableLookup
+      LookupKeyFields = 'id_unidade'
+      LookupResultField = 'descricao'
+      KeyFields = 'idunidade_medida'
+      Size = 95
+      Lookup = True
+    end
+  end
+  object FDTableLookup: TFDTable
+    IndexFieldNames = 'id_unidade'
+    Connection = dmPedidos.fdConexao
+    TableName = 'sistema_compra.unidade_medida'
+    Left = 344
+    Top = 136
+    object FDTableLookupid_unidade: TFDAutoIncField
+      FieldName = 'id_unidade'
+      Origin = 'id_unidade'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDTableLookupdescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Required = True
+      Size = 95
+    end
+  end
+  object DataSource2: TDataSource
+    DataSet = FDTableLookup
+    Left = 456
+    Top = 152
   end
 end

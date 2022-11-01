@@ -12,7 +12,6 @@ uses
 
 type
   TfrmProduto = class(TForm)
-    DBGrid1: TDBGrid;
     DBNavigator1: TDBNavigator;
     DataSource1: TDataSource;
     FDTable1: TFDTable;
@@ -24,6 +23,13 @@ type
     Label2: TLabel;
     DBEdit2: TDBEdit;
     Label3: TLabel;
+    DBGrid1: TDBGrid;
+    FDTableLookup: TFDTable;
+    DataSource2: TDataSource;
+    FDTableLookupid_unidade: TFDAutoIncField;
+    FDTableLookupdescricao: TStringField;
+    DBLookupComboBox1: TDBLookupComboBox;
+    FDTable1LookupUnidadeMedida: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
   private
@@ -45,6 +51,7 @@ procedure TfrmProduto.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 Action := caFree;
   FDTable1.Close;
+  FDTableLookup.Close;
 
   frmProduto := nil;
 end;
@@ -52,6 +59,7 @@ end;
 procedure TfrmProduto.FormCreate(Sender: TObject);
 begin
   FDTable1.Open;
+  FDTableLookup.Open;
 end;
 
 end.
