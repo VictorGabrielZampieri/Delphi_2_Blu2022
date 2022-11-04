@@ -26,9 +26,9 @@ object frmUnidadeMedidas: TfrmUnidadeMedidas
   object Label2: TLabel
     Left = 56
     Top = 144
-    Width = 45
+    Width = 46
     Height = 13
-    Caption = 'descricao'
+    Caption = 'Descricao'
     FocusControl = DBEdit2
   end
   object DBNavigator1: TDBNavigator
@@ -41,9 +41,9 @@ object frmUnidadeMedidas: TfrmUnidadeMedidas
   end
   object DBGrid1: TDBGrid
     Left = 56
-    Top = 228
+    Top = 224
     Width = 337
-    Height = 61
+    Height = 84
     DataSource = DataSource1
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
