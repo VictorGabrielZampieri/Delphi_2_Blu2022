@@ -12,14 +12,14 @@ uses
 
 type
   TfrmPedidos = class(TForm)
-    DataSource1: TDataSource;
-    FDTable1: TFDTable;
+    dtsPedidoCompra: TDataSource;
+    Pedido_compra: TFDTable;
     DBNavigator1: TDBNavigator;
-    FDTable1id_pedido: TFDAutoIncField;
-    FDTable1numero: TLongWordField;
-    FDTable1data_pedido: TDateField;
-    FDTable1idcomprador: TLongWordField;
-    FDTable1idfornecedor: TLongWordField;
+    Pedido_compraid_pedido: TFDAutoIncField;
+    Pedido_compranumero: TLongWordField;
+    Pedido_compradata_pedido: TDateField;
+    Pedido_compraidcomprador: TLongWordField;
+    Pedido_compraidfornecedor: TLongWordField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
@@ -27,30 +27,30 @@ type
     Label3: TLabel;
     DBEdit3: TDBEdit;
     Label4: TLabel;
-    DataSource2: TDataSource;
+    dtsLookupComprador: TDataSource;
     FDTableLookupComprador: TFDTable;
-    DataSource3: TDataSource;
+    dtsLookupFornecedor: TDataSource;
     FDTableLookupFornecedor: TFDTable;
     DBLookupComboBox1: TDBLookupComboBox;
     Fornecedor: TLabel;
     DBLookupComboBox2: TDBLookupComboBox;
     Label5: TLabel;
-    DBGrid1: TDBGrid;
     DBNavigator2: TDBNavigator;
-    DataSource4: TDataSource;
-    FDTable2: TFDTable;
-    FDTable2id_item: TFDAutoIncField;
-    FDTable2quantidade: TLongWordField;
-    FDTable2idpedido_compra: TLongWordField;
-    FDTable2idproduto: TLongWordField;
-    FDTable3: TFDTable;
-    FDTable3descricao: TStringField;
-    FDTable3id_produto: TFDAutoIncField;
-    FDTable3idunidade_medida: TLongWordField;
-    FDTable2lookupProduto: TStringField;
+    dtsLookupCompra: TDataSource;
+    Item_compra: TFDTable;
+    Item_compraid_item: TFDAutoIncField;
+    Item_compraquantidade: TLongWordField;
+    Item_compraidpedido_compra: TLongWordField;
+    Item_compraidproduto: TLongWordField;
+    LookupProdutos: TFDTable;
+    LookupProdutosdescricao: TStringField;
+    LookupProdutosid_produto: TFDAutoIncField;
+    LookupProdutosidunidade_medida: TLongWordField;
+    Item_compralookupProduto: TStringField;
+    DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FDTable2BeforePost(DataSet: TDataSet);
+    procedure Item_compraBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -66,17 +66,17 @@ implementation
 
 uses UdmPedidos;
 
-procedure TfrmPedidos.FDTable2BeforePost(DataSet: TDataSet);
+procedure TfrmPedidos.Item_compraBeforePost(DataSet: TDataSet);
 begin
-  FDTable2idpedido_compra.AsInteger := FDTable1id_pedido.AsInteger;
+  Item_compraidpedido_compra.AsInteger := Pedido_compraid_pedido.AsInteger;
 end;
 
 procedure TfrmPedidos.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
-  FDTable1.Close;
-  FDTable2.Close;
-  FDTable3.Close;
+  Pedido_compra.Close;
+  Item_compra.Close;
+  LookupProdutos.Close;
   FDTableLookupFornecedor.Close;
   FDTableLookupComprador.Close;
 
@@ -85,11 +85,11 @@ end;
 
 procedure TfrmPedidos.FormCreate(Sender: TObject);
 begin
-  FDTable1.Open;
+  Pedido_compra.Open;
   FDTableLookupComprador.Open;
   FDTableLookupFornecedor.Open;
-  FDTable2.Open;
-  FDTable3.Open;
+  Item_compra.Open;
+  LookupProdutos.Open;
 end;
 
 end.
