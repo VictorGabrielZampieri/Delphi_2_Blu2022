@@ -48,9 +48,11 @@ type
     LookupProdutosidunidade_medida: TLongWordField;
     Item_compralookupProduto: TStringField;
     DBGrid1: TDBGrid;
+    Item_compravlr_total: TFloatField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Item_compraBeforePost(DataSet: TDataSet);
+    procedure Item_compraCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -69,6 +71,11 @@ uses UdmPedidos;
 procedure TfrmPedidos.Item_compraBeforePost(DataSet: TDataSet);
 begin
   Item_compraidpedido_compra.AsInteger := Pedido_compraid_pedido.AsInteger;
+end;
+
+procedure TfrmPedidos.Item_compraCalcFields(DataSet: TDataSet);
+begin
+  Item_compravlr_total.asfloat := Item_compraquantidade*10;
 end;
 
 procedure TfrmPedidos.FormClose(Sender: TObject; var Action: TCloseAction);

@@ -127,7 +127,7 @@ object frmPedidos: TfrmPedidos
   end
   object DBNavigator2: TDBNavigator
     Left = 495
-    Top = 391
+    Top = 376
     Width = 34
     Height = 130
     DataSource = dtsLookupCompra
@@ -238,13 +238,14 @@ object frmPedidos: TfrmPedidos
   end
   object Item_compra: TFDTable
     BeforePost = Item_compraBeforePost
-    IndexFieldNames = 'id_item'
+    OnCalcFields = Item_compraCalcFields
+    IndexFieldNames = 'idpedido_compra'
     MasterSource = dtsPedidoCompra
     MasterFields = 'id_pedido'
     Connection = dmPedidos.fdConexao
     TableName = 'sistema_compra.item_compra'
-    Left = 672
-    Top = 408
+    Left = 664
+    Top = 416
     object Item_compraid_item: TFDAutoIncField
       FieldName = 'id_item'
       Origin = 'id_item'
@@ -276,12 +277,17 @@ object frmPedidos: TfrmPedidos
       Size = 250
       Lookup = True
     end
+    object Item_compravlr_total: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'vlr_total'
+      Calculated = True
+    end
   end
   object LookupProdutos: TFDTable
     IndexFieldNames = 'id_produto'
     Connection = dmPedidos.fdConexao
     TableName = 'sistema_compra.produto'
-    Left = 648
+    Left = 664
     Top = 488
     object LookupProdutosdescricao: TStringField
       AutoGenerateValue = arDefault
