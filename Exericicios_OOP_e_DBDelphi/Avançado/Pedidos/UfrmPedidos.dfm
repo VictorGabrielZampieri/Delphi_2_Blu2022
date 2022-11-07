@@ -238,7 +238,6 @@ object frmPedidos: TfrmPedidos
   end
   object Item_compra: TFDTable
     BeforePost = Item_compraBeforePost
-    OnCalcFields = Item_compraCalcFields
     IndexFieldNames = 'idpedido_compra'
     MasterSource = dtsPedidoCompra
     MasterFields = 'id_pedido'
