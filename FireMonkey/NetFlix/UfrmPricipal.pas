@@ -32,7 +32,16 @@ type
     ListBox1: TListBox;
     FloatAnimation1: TFloatAnimation;
     Layout3: TLayout;
-    Image1: TImage;
+    imgBtnSaibaMais: TImage;
+    {$IFDEF MSWINDOWS}
+    procedure MenuClick(Sender : TObject);
+    {$ELSE}
+    procedure MenuTap(Sender : TObject; const Point : TPointF);
+    {$ENDIF}
+    procedure FormCreate(Sender: TObject);
+    procedure FloatAnimation1Finish(Sender: TObject);
+    procedure imgBtnCloseClick(Sender: TObject);
+    procedure lytGeneroClick(Sender: TObject);
   private
     { Private declarations }
     procedure LoadMenu;
@@ -50,6 +59,48 @@ implementation
 {$R *.fmx}
 
 { TfrmPrincipal }
+
+procedure TfrmPrincipal.FloatAnimation1Finish(Sender: TObject);
+begin
+  if (lytMenu.Tag = 0) then      //FireUI Live Preview
+    lytMenu.Visible := False;
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  imgCartaz.Position.X := 0;
+  imgCartaz.Position.Y := 0;
+  imgCartaz.Width      := 676;
+  imgCartaz.Height     := 450;
+
+  Self.LoadMenu;
+  Self.OpenMenu(False);
+end;
+
+procedure TfrmPrincipal.imgBtnCloseClick(Sender: TObject);
+begin
+  Self.OpenMenu(False);
+end;
+
+
+procedure TfrmPrincipal.lytGeneroClick(Sender: TObject);
+begin
+  Self.OpenMenu(True);
+end;
+
+{$IFDEF MSWINDOWS}
+procedure TfrmPrincipal.MenuClick(Sender: TObject);
+begin
+  lblFiltro.Text := TListBoxItem(Sender).Text;
+  Self.OpenMenu(False);
+end;
+{$ELSE}
+procedure TfrmPrincipal.MenuTap(Sender : TObject; const Point : TPointF);
+begin
+  lblFiltro.Text := TListBoxItem(Sender).Text;
+  Self.OpenMenu(False);
+end;
+{$ENDIF}
 
 procedure TfrmPrincipal.LoadMenu;
 begin
@@ -96,9 +147,32 @@ begin
 end;
 
 procedure TfrmPrincipal.SetupMenu(Item: TListBoxItem; texto: String);
-
 begin
+  Item.Text := Texto;
+  Item.StyledSettings := Item.StyledSettings - [TStyledSetting.Size, TStyledSetting.FontColor,TStyledSetting.Other];
+  Item.TextSettings.HorzAlign := TTextAlign.Center;
+  Item.HitTest := True;
 
+  {$IFDEF MSWINDOWS}
+  Item.OnClick := Self.MenuClick;
+  {$ELSE}
+  Item.OnTap := Self.MenuTap;
+  {$ENDIF}
+
+  if ListBox1.Items.Count > 0 then
+  begin
+    Item.FontColor := $FFC3C3C3;
+    Item.Font.Size := 20;
+    Item.Height    := 80;
+  end
+  else
+  begin
+    Item.FontColor := $FFFFFFFF;
+    Item.Font.Size      := 25;
+    Item.Height    := 110;
+  end;
+
+  ListBox1.AddObject(Item);
 end;
 
 end.
