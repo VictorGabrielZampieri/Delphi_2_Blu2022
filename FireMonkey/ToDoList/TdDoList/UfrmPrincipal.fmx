@@ -31,7 +31,7 @@ object frmPrincipal: TfrmPrincipal
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Left
           TabOrder = 0
-          Text = ' Nova Tarefa'
+          Text = 'Nova Tarefa'
           TextSettings.FontColor = claSnow
           Position.Y = 8.000000000000000000
           Size.Width = 273.000000000000000000
@@ -68,8 +68,10 @@ object frmPrincipal: TfrmPrincipal
       Size.Height = 432.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
       StyleLookup = 'listviewstyle'
       OnDeleteItem = lstTarefasDeleteItem
+      DeleteButtonText = 'Excluir'
     end
   end
 end
