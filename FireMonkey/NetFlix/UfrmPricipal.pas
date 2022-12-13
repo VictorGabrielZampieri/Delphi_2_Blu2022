@@ -23,8 +23,6 @@ type
     imgBtnAssistir: TImage;
     Layout2: TLayout;
     imgBtnPlus: TImage;
-    Layout3: TLayout;
-    imgBtnSaibaMais: TImage;
     lblMinhaLista: TLabel;
     lblSaibaMais: TLabel;
     lytMenu: TLayout;
@@ -33,6 +31,8 @@ type
     imgBtnClose: TImage;
     ListBox1: TListBox;
     FloatAnimation1: TFloatAnimation;
+    Layout3: TLayout;
+    Image1: TImage;
   private
     { Private declarations }
     procedure LoadMenu;

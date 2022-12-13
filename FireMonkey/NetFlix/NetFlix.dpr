@@ -3,12 +3,12 @@ program NetFlix;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  UfrmPricipal in 'UfrmPricipal.pas' {Form1};
+  UfrmPricipal in 'UfrmPricipal.pas' {frmPrincipal};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.
