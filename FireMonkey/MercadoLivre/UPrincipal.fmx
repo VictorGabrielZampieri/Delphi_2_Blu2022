@@ -4,6 +4,8 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Form1'
   ClientHeight = 878
   ClientWidth = 287
+  Fill.Color = xFFEDEDED
+  Fill.Kind = Solid
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -1429,6 +1431,7 @@ object frmPrincipal: TfrmPrincipal
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.FontColor = xFF6C6C6C
+        TextSettings.HorzAlign = Center
         Text = 'Quantidade : 1'
         TabOrder = 1
       end
