@@ -38,6 +38,8 @@ type
     lyt_detalhes: TLayout;
     Rec_fundo_branco_bottom: TRectangle;
     circuloProduto: TCircle;
+    lblProduto: TLabel;
+    Label1: TLabel;
   private
     { Private declarations }
   public
