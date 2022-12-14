@@ -39,7 +39,7 @@ type
     Rec_fundo_branco_bottom: TRectangle;
     circuloProduto: TCircle;
     lblProduto: TLabel;
-    Label1: TLabel;
+    lblQuantidade: TLabel;
   private
     { Private declarations }
   public
