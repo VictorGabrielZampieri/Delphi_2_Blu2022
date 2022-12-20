@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  FMX.Layouts, FMX.TabControl, FMX.Effects;
+  FMX.Layouts, FMX.TabControl, FMX.Effects, UJogoVelha;
 
 type
   TfrmPrincipal = class(TForm)
@@ -64,9 +64,9 @@ type
     { Private declarations }
    FJogoVelha : TJogoVelha;
 
-    procedure MarcarJogadorComputador(const aCoordenadas: String);
+    procedure MarcarJogadaComputador(const aCoordenadas: String);
     procedure ReiniciarJogo;
-    procedure AnimarFimJogo(const aRetangulo: TRectangulo);
+    procedure AnimarFimJogo(const aRetangulo: TRectangle);
   public
     { Public declarations }
   end;
@@ -104,14 +104,14 @@ begin
 
   xRetangulo.HitTest := False;
 
-  FJogoVelha.VerificarFimDoJogo(TJogador.tpPlayer);
+  FJogoVelha.VerificarFimDoJogo(TJogador.tpPlayer1);
 
   if (not FjogoVelha.FimJogo) and (FJogoVelha.Jogadas < 5) then
   begin
       xCoordenadas := FJogoVelha.JogadaComputador;
       Self.MarcarJogadaComputador(xCoordenadas);
 
-      FJogoVelha.VerificarFimJogo(TJogador.tpCpu);
+      FJogoVelha.VerificarFimDoJogo(TJogador.tpCpu);
 
       if (FJogoVelha.FimJogo) then
         Self.AnimarFimJogo(rect_game_over);
@@ -121,7 +121,7 @@ begin
       if (FJogoVelha.Jogadas < 5) or (FJogoVelha.FimJogo) then
         self.AnimarFimJogo(rect_parabens)
       else
-        Self.Self.AnimarFimJogo(rect_deu_velha);
+        Self.AnimarFimJogo(rect_deu_velha);
 
   end;
 end;
@@ -150,15 +150,16 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.AnimarFimJogo(const aRetangulo: TRectangulo);
+procedure TfrmPrincipal.AnimarFimJogo(const aRetangulo: TRectangle);
 begin
   rec_fim_jogo.Visible := True;
   rect_progresso.Width := 20;
+  rect_fundo_tab2.Visible := False;
 
   aRetangulo.Opacity := 0;
   aRetangulo.Visible := True;
 
-  TTheread.CreateAnonymousThread(procedure
+  TThread.CreateAnonymousThread(procedure
   begin
     TThread.Synchronize(nil, procedure
     begin
@@ -184,6 +185,7 @@ begin
     begin
       aRetangulo.Visible   := False;
       rec_fim_jogo.Visible := False;
+      rect_fundo_tab2.Visible := True;
 
       Self.ReiniciarJogo;
     end);
@@ -224,7 +226,7 @@ begin
   TabControl1.ActiveTab   := TabItem1;
 end;
 
-procedure TfrmPrincipal.MarcarJogadorComputador(const aCoordenadas: String);
+procedure TfrmPrincipal.MarcarJogadaComputador(const aCoordenadas: String);
 var
   xLinha, xColuna : Byte;
   xRetangulo : TRectangle;
