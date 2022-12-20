@@ -62,7 +62,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
-    FJogoVelha : TJogoVelha;
+   FJogoVelha : TJogoVelha;
 
     procedure MarcarJogadorComputador(const aCoordenadas: String);
     procedure ReiniciarJogo;
