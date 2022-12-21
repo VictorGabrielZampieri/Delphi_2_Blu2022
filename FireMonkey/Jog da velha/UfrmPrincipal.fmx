@@ -5153,7 +5153,7 @@ object frmPrincipal: TfrmPrincipal
           Align = Bottom
           Fill.Color = claWhite
           Position.Y = 466.000000000000000000
-          Size.Width = 304.000000000000000000
+          Size.Width = 327.000000000000000000
           Size.Height = 14.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
