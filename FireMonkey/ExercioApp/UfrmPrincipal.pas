@@ -5,16 +5,17 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Edit;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts, FMX.Edit,
+  FMX.TabControl;
 
 type
   TfrmPrincipal = class(TForm)
     FlowLayout1: TFlowLayout;
-    Rec_1_1: TRectangle;
+    rect_CMachiatto: TRectangle;
     rect_Machiatto: TRectangle;
     lblMachiatto: TLabel;
-    lbl_prices: TLabel;
-    rect_1_2: TRectangle;
+    lbl_pricesMachiatto: TLabel;
+    rect_CLatte: TRectangle;
     rect_latte: TRectangle;
     lbl_latte: TLabel;
     lbl_pricesLatte: TLabel;
@@ -34,20 +35,20 @@ type
     lyt_center: TLayout;
     lyt_pop_drinks: TLayout;
     lbl_popular_drinks: TLabel;
-    rect_2_1: TRectangle;
+    rect_CAmericano: TRectangle;
     rect_Americano: TRectangle;
     lbl_Americano: TLabel;
     lbl_pricesAmericano: TLabel;
-    rect_2_2: TRectangle;
-    rect_picco: TRectangle;
-    lbl_picco: TLabel;
+    rect_CPiccolo: TRectangle;
+    rect_piccolo: TRectangle;
+    lbl_piccolo: TLabel;
     lbl_pricesPiccolo: TLabel;
-    rect_3_1: TRectangle;
+    rect_CCappuccino: TRectangle;
     rect_Cappuccino: TRectangle;
     lbl_Cappuccino: TLabel;
     lbl_priceCappuccino: TLabel;
-    rect_3_2: TRectangle;
-    Rectangle8: TRectangle;
+    rect_CFrapucciono: TRectangle;
+    rect_Frapucciono: TRectangle;
     lbl_Frapuccino: TLabel;
     lbl_priceFrapuccino: TLabel;
     Circle1: TCircle;
@@ -102,7 +103,11 @@ type
     img_buy: TImage;
     lyt_img_buy: TLayout;
     lbl_IDR: TLabel;
-    VertScrollBox1: TVertScrollBox;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+
+    procedure OnClickCoffe(Sender : TObject);
   private
     { Private declarations }
   public
@@ -115,5 +120,57 @@ var
 implementation
 
 {$R *.fmx}
+
+{ TfrmPrincipal }
+
+procedure TfrmPrincipal.OnClickCoffe(Sender: TObject);
+var
+  xPosicao: Integer;
+  xRetangulo : String;
+  xCafe: String;
+begin
+  TabControl1.ActiveTab := TabItem2;
+
+  xRetangulo := (Sender as TRectangle).Name;
+  xPosicao   := Pos('_', xRetangulo);
+  xCafe   := Copy(xRetangulo, xPosicao + 1, Length(xRetangulo));
+
+  if (xCafe = 'CMachiatto') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CMachiatto.Fill.Bitmap;
+    lbl_coffe_name.Text        := lblMachiatto.Text;
+    lbl_IDR.Text               := lbl_pricesMachiatto.Text;
+  end
+  else if(xCafe = 'CLatte') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CLatte.Fill.Bitmap;
+    lbl_coffe_name.Text        := lbl_latte.Text;
+    lbl_IDR.Text               := lbl_pricesLatte.Text;
+  end
+  else if(xCafe = 'CAmericano') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CAmericano.Fill.Bitmap;
+    lbl_coffe_name.Text        := lbl_Americano.Text;
+    lbl_IDR.Text               := lbl_pricesAmericano.Text;
+  end
+  else if(xCafe = 'CPiccolo') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CPiccolo.Fill.Bitmap;
+    lbl_coffe_name.Text        := lbl_piccolo.Text;
+    lbl_IDR.Text               := lbl_pricesPiccolo.Text;
+  end
+  else if(xCafe = 'CCappuccino') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CCappuccino.Fill.Bitmap;
+    lbl_coffe_name.Text        := lbl_Cappuccino.Text;
+    lbl_IDR.Text               := lbl_priceCappuccino.Text;
+  end
+  else if(xCafe = 'CFrapucciono') then
+  begin
+    rect_img_coffe.Fill.Bitmap := rect_CFrapucciono.Fill.Bitmap;
+    lbl_coffe_name.Text        := lbl_Frapuccino.Text;
+    lbl_IDR.Text               := lbl_priceFrapuccino.Text;
+  end
+end;
 
 end.
