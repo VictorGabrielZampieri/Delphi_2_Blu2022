@@ -108,8 +108,16 @@ type
     TabItem2: TTabItem;
 
     procedure OnClickCoffe(Sender : TObject);
+    procedure OnClickSize(Sender : TObject);
+    procedure img_backClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cir_LessClick(Sender: TObject);
+    procedure cir_plusClick(Sender: TObject);
   private
     { Private declarations }
+    procedure MaisCafe;
+    procedure MenosCafe;
+    procedure AtualizarValor(aQuantidadeAtual : Integer);
   public
     { Public declarations }
   end;
@@ -122,6 +130,56 @@ implementation
 {$R *.fmx}
 
 { TfrmPrincipal }
+
+procedure TfrmPrincipal.AtualizarValor(aQuantidadeAtual : Integer);
+var
+  xValor : Double;
+begin
+  xValor := StrToFloat(lbl_IDR.Text);
+  xValor := xValor*aQuantidadeAtual;
+  lbl_IDR.Text := xValor.ToString;
+end;
+
+procedure TfrmPrincipal.cir_LessClick(Sender: TObject);
+begin
+  Self.MenosCafe;
+end;
+
+procedure TfrmPrincipal.cir_plusClick(Sender: TObject);
+begin
+  Self.MaisCafe;
+end;
+
+procedure TfrmPrincipal.FormShow(Sender: TObject);
+begin
+  TabControl1.TabPosition := TTabPosition.None;
+  TabControl1.ActiveTab   := TabItem1;
+end;
+
+procedure TfrmPrincipal.img_backClick(Sender: TObject);
+begin
+   TabControl1.ActiveTab := TabItem1;
+end;
+
+procedure TfrmPrincipal.MaisCafe;
+var
+  xQntAtual : Integer;
+begin
+    xQntAtual := StrToInt(lbl_qnt.Text);
+    xQntAtual := xQntAtual+1;
+    lbl_qnt.Text := xQntAtual.ToString;
+end;
+
+procedure TfrmPrincipal.MenosCafe;
+var
+  xQntAtual : Integer;
+begin
+    xQntAtual := StrToInt(lbl_qnt.Text);
+    if (xQntAtual - 1 <= 0) then
+    Exit;
+    xQntAtual := xQntAtual-1;
+    lbl_qnt.Text := xQntAtual.ToString;
+end;
 
 procedure TfrmPrincipal.OnClickCoffe(Sender: TObject);
 var
@@ -170,6 +228,52 @@ begin
     rect_img_coffe.Fill.Bitmap := rect_CFrapucciono.Fill.Bitmap;
     lbl_coffe_name.Text        := lbl_Frapuccino.Text;
     lbl_IDR.Text               := lbl_priceFrapuccino.Text;
+  end
+end;
+
+procedure TfrmPrincipal.OnClickSize(Sender: TObject);
+var
+  xPosicao: Integer;
+  xCirculo : String;
+  xbotao: String;
+begin
+
+  xCirculo := (Sender as TCircle).Name;
+  xPosicao   := Pos('_', xCirculo);
+  xbotao   := Copy(xCirculo, xPosicao + 1, Length(xCirculo));
+
+   if (xbotao = 'Small') then
+  begin
+    lbl_Small.FontColor       := TAlphaColorRec.White;
+    cir_Small.Fill.Color      := TAlphaColorRec.Orange;
+
+    lbl_Medium.FontColor  := TAlphaColorRec.Black;
+    cir_Medium.Fill.Color := TAlphaColorRec.Lightgray;
+
+    lbl_Large.FontColor  := TAlphaColorRec.Black;
+    cir_Large.Fill.Color := TAlphaColorRec.Lightgray;
+  end
+  else if(xbotao = 'Medium') then
+  begin
+    lbl_Medium.FontColor       := TAlphaColorRec.White;
+    cir_Medium.Fill.Color      := TAlphaColorRec.Orange;
+
+    lbl_Small.FontColor  := TAlphaColorRec.Black;
+    cir_Small.Fill.Color := TAlphaColorRec.Lightgray;
+
+    lbl_Large.FontColor  := TAlphaColorRec.Black;
+    cir_Large.Fill.Color := TAlphaColorRec.Lightgray;
+  end
+  else if(xbotao = 'Large') then
+  begin
+    lbl_Medium.FontColor  := TAlphaColorRec.Black;
+    cir_Medium.Fill.Color := TAlphaColorRec.Lightgray;
+
+    lbl_Small.FontColor  := TAlphaColorRec.Black;
+    cir_Small.Fill.Color := TAlphaColorRec.Lightgray;
+
+    lbl_Large.FontColor  := TAlphaColorRec.White;
+    cir_Large.Fill.Color := TAlphaColorRec.Orange;
   end
 end;
 
