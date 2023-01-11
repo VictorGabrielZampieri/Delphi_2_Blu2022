@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.Menus;
 
 type
   TfrmPrincipal = class(TForm)
@@ -21,11 +21,21 @@ type
     Label4: TLabel;
     Label5: TLabel;
     imgFundo: TImage;
+    imgRelatorios: TImage;
+    Label6: TLabel;
+    PopupMenu1: TPopupMenu;
+    Produtos: TMenuItem;
+    Compradores1: TMenuItem;
+    Fornecedores1: TMenuItem;
+    UnMedida1: TMenuItem;
+    Pedidos1: TMenuItem;
     procedure imgCompradoresClick(Sender: TObject);
     procedure imgFornecedoresClick(Sender: TObject);
-    procedure imgUnidadeMedidaClick(Sender: TObject);
-    procedure imgProdutosClick(Sender: TObject);
     procedure imgPedidosClick(Sender: TObject);
+    procedure UnMedida1Click(Sender: TObject);
+    procedure ProdutosClick(Sender: TObject);
+    procedure imgProdutosClick(Sender: TObject);
+    procedure imgUnidadeMedidaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,7 +49,8 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos, UfrmPedidos;
+uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos, UfrmPedidos,
+  UfrmRelUnidadeMedida;
 
 procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
 begin
@@ -67,11 +78,13 @@ end;
 
 procedure TfrmPrincipal.imgProdutosClick(Sender: TObject);
 begin
-  if not Assigned(frmProduto) then
+if not Assigned(frmProduto) then
     frmProduto := TfrmProduto.Create(self);
 
     frmProduto.Show;
 end;
+
+
 
 procedure TfrmPrincipal.imgUnidadeMedidaClick(Sender: TObject);
 begin
@@ -79,6 +92,22 @@ begin
     frmUnidadeMedidas := TfrmUnidadeMedidas.Create(self);
 
     frmUnidadeMedidas.Show;
+end;
+
+procedure TfrmPrincipal.ProdutosClick(Sender: TObject);
+begin
+  if not Assigned(frmProduto) then
+    frmProduto := TfrmProduto.Create(self);
+
+    frmProduto.Show;
+end;
+
+procedure TfrmPrincipal.UnMedida1Click(Sender: TObject);
+begin
+  if not Assigned(frmRelUnidadeMedida) then
+    frmRelUnidadeMedida := TfrmRelUnidadeMedida.Create(Self);
+
+    frmRelUnidadeMedida.Show;
 end;
 
 end.
