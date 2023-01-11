@@ -44,7 +44,7 @@ uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos, UfrmPe
 procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
 begin
   if not Assigned(frmCompredores) then
-    frmCompredores := frmCompredores.Create(self);
+    frmCompredores := TfrmCompredores.Create(self);
 
     frmCompredores.Show;
 end;
@@ -52,7 +52,7 @@ end;
 procedure TfrmPrincipal.imgFornecedoresClick(Sender: TObject);
 begin
   if not Assigned(frmFornecedores) then
-    frmFornecedores := frmFornecedores.Create(self);
+    frmFornecedores := TfrmFornecedores.Create(self);
 
     frmFornecedores.Show;
 end;
@@ -60,7 +60,7 @@ end;
 procedure TfrmPrincipal.imgPedidosClick(Sender: TObject);
 begin
   if not Assigned(frmPedidos) then
-    frmPedidos := frmPedidos.Create(self);
+    frmPedidos := TfrmPedidos.Create(self);
 
     frmPedidos.Show;
 end;
@@ -68,7 +68,7 @@ end;
 procedure TfrmPrincipal.imgProdutosClick(Sender: TObject);
 begin
   if not Assigned(frmProduto) then
-    frmProduto := frmProduto.Create(self);
+    frmProduto := TfrmProduto.Create(self);
 
     frmProduto.Show;
 end;
@@ -76,7 +76,7 @@ end;
 procedure TfrmPrincipal.imgUnidadeMedidaClick(Sender: TObject);
 begin
   if not Assigned(frmUnidadeMedidas) then
-    frmUnidadeMedidas := frmUnidadeMedidas.Create(self);
+    frmUnidadeMedidas := TfrmUnidadeMedidas.Create(self);
 
     frmUnidadeMedidas.Show;
 end;

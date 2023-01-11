@@ -17,8 +17,8 @@ object dmPedidos: TdmPedidos
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\vgzampieri\Documents\Delphi_2_Blu2022\Exericicios_OOP_e' +
-      '_DBDelphi\Avan'#231'ado\Pedidos\libmysql.dll'
+      'C:\Users\mysql\Documents\Delphi_2_Blu2022\Exericicios_OOP_e_DBDe' +
+      'lphi\Avan'#231'ado\Pedidos\libmysql.dll'
     Left = 120
     Top = 176
   end
