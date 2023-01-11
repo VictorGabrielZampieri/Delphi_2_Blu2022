@@ -23,6 +23,7 @@ type
     frxPDFExport1: TfrxPDFExport;
     procedure btnVisualizarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnExportarClick(Sender: TObject);
   private
     { Private declarations }
     procedure PrepararFiltro;
@@ -36,6 +37,22 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmRelUnidadeMedida.btnExportarClick(Sender: TObject);
+var
+  xCaminho : String;
+begin
+  Self.PrepararFiltro;
+
+  xCaminho := ExtractFilePath(Application.ExeName) + 'temp';
+
+  if not (DirectoryExists(xCaminho)) then
+    ForceDirectories(xCaminho);
+
+    frxPDFExport1.FileName := Format('%s\UnidadeMedida.pdf', [xCaminho]);
+    frxReport1.PrepareReport;
+    frxReport1.Export(frxPDFExport1);
+end;
 
 procedure TfrmRelUnidadeMedida.btnVisualizarClick(Sender: TObject);
 begin

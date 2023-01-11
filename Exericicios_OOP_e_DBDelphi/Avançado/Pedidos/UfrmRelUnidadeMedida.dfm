@@ -51,6 +51,7 @@ object frmRelUnidadeMedida: TfrmRelUnidadeMedida
       Height = 25
       Caption = 'Exportar'
       TabOrder = 2
+      OnClick = btnExportarClick
     end
   end
   object FDQuery1: TFDQuery
