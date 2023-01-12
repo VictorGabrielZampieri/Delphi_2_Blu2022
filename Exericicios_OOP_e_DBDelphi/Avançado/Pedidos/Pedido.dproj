@@ -130,7 +130,19 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UfrmRelUnidadeMedida.pas">
-            <Form>Form1</Form>
+            <Form>frmRelUnidadeMedida</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="URelCompradores.pas">
+            <Form>frmRelCompradores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UfrmRelProdutos.pas">
+            <Form>frmRelProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UfrmRelFornecedores.pas">
+            <Form>frmRelFornecedores</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -158,6 +170,7 @@
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp270.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\FastReports\LibD27\dclfrxtee27.bpl">FastReport 6.0 Tee Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, Vcl.Menus;
+  Vcl.ExtCtrls, Vcl.Menus, UfrmRelProdutos;
 
 type
   TfrmPrincipal = class(TForm)
@@ -36,6 +36,8 @@ type
     procedure ProdutosClick(Sender: TObject);
     procedure imgProdutosClick(Sender: TObject);
     procedure imgUnidadeMedidaClick(Sender: TObject);
+    procedure Compradores1Click(Sender: TObject);
+    procedure Fornecedores1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +52,23 @@ implementation
 {$R *.dfm}
 
 uses UfrmCompradores, UfrmFornecedores, UfrmUnidadeMedidas, UfrmProdutos, UfrmPedidos,
-  UfrmRelUnidadeMedida;
+  UfrmRelUnidadeMedida, URelCompradores, UfrmRelFornecedores;
+
+procedure TfrmPrincipal.Compradores1Click(Sender: TObject);
+begin
+  if not Assigned(frmRelCompradores) then
+    frmRelCompradores := TfrmRelCompradores.Create(Self);
+
+    frmRelCompradores.Show;
+end;
+
+procedure TfrmPrincipal.Fornecedores1Click(Sender: TObject);
+begin
+   if not Assigned(frmRelFornecedores) then
+    frmRelFornecedores := TfrmRelFornecedores.Create(self);
+
+    frmRelFornecedores.Show;
+end;
 
 procedure TfrmPrincipal.imgCompradoresClick(Sender: TObject);
 begin
@@ -96,10 +114,10 @@ end;
 
 procedure TfrmPrincipal.ProdutosClick(Sender: TObject);
 begin
-  if not Assigned(frmProduto) then
-    frmProduto := TfrmProduto.Create(self);
+  if not Assigned(frmRelProdutos) then
+    frmRelProdutos := TfrmRelProdutos.Create(self);
 
-    frmProduto.Show;
+    frmRelProdutos.Show;
 end;
 
 procedure TfrmPrincipal.UnMedida1Click(Sender: TObject);
