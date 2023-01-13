@@ -25,6 +25,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object Exercicio021: TMenuItem
         Caption = 'Exercicio 02'
+        OnClick = Exercicio021Click
       end
       object Exercicio022: TMenuItem
         Caption = 'Exercicio 03'

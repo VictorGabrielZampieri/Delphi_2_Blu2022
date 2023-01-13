@@ -11,6 +11,7 @@ object frmRelAtor: TfrmRelAtor
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -41,10 +42,10 @@ object frmRelAtor: TfrmRelAtor
       Height = 25
       Caption = 'Visualizar'
       TabOrder = 1
+      OnClick = btnVisualizarClick
     end
   end
   object FDQuery1: TFDQuery
-    Active = True
     Connection = frmConecxao.fdConecxao
     SQL.Strings = (
       

@@ -18,8 +18,11 @@ type
     FDQuery1: TFDQuery;
     frxDBDataset1: TfrxDBDataset;
     frxReport1: TfrxReport;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnVisualizarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure PrepararFiltro;
   public
     { Public declarations }
   end;
@@ -30,5 +33,31 @@ var
 implementation
 
 {$R *.dfm}
+
+{ TfrmRelAtor }
+
+procedure TfrmRelAtor.btnVisualizarClick(Sender: TObject);
+begin
+  Self.PrepararFiltro;
+
+  frxReport1.ShowReport;
+end;
+
+procedure TfrmRelAtor.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  FDQuery1.Close;
+
+  frmRelAtor := nil;
+end;
+
+procedure TfrmRelAtor.PrepararFiltro;
+begin
+   FDQuery1.Close;
+  FDQuery1.ParamByName('LAST_NAME').AsString := '';
+  if (Trim(edtNome.Text) <> EmptyStr) then
+    FDQuery1.ParamByName('LAST_NAME').AsString := '%' + Trim(edtNome.Text) + '%';
+  FDQuery1.Open;
+end;
 
 end.

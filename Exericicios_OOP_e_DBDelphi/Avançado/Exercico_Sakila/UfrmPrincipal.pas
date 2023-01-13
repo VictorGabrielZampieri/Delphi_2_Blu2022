@@ -14,6 +14,7 @@ type
     Exercicio021: TMenuItem;
     Exercicio022: TMenuItem;
     procedure Relatrios2Click(Sender: TObject);
+    procedure Exercicio021Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,9 +27,17 @@ var
 implementation
 
 uses
-  UfrmRelAtor;
+  UfrmRelAtor, UfrmRelCidade;
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.Exercicio021Click(Sender: TObject);
+begin
+  if not Assigned(frmRelCidade) then
+    frmRelCidade := TfrmRelCidade.Create(self);
+
+    frmRelCidade.Show;
+end;
 
 procedure TfrmPrincipal.Relatrios2Click(Sender: TObject);
 begin
