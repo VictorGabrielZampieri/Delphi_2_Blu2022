@@ -2403,6 +2403,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object Pedidos1: TMenuItem
       Caption = '&Pedidos'
+      OnClick = Pedidos1Click
     end
   end
 end

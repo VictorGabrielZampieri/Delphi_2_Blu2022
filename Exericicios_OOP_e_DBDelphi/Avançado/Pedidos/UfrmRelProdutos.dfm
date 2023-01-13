@@ -28,10 +28,17 @@ object frmRelProdutos: TfrmRelProdutos
       Height = 13
       Caption = 'Descricao'
     end
+    object Label2: TLabel
+      Left = 144
+      Top = 32
+      Width = 54
+      Height = 13
+      Caption = 'Un. Medida'
+    end
     object edtDescricaoProduto: TEdit
       Left = 24
       Top = 51
-      Width = 241
+      Width = 105
       Height = 21
       TabOrder = 0
     end
@@ -52,6 +59,13 @@ object frmRelProdutos: TfrmRelProdutos
       Caption = 'Exportar'
       TabOrder = 2
       OnClick = btnExportarClick
+    end
+    object edtUnidadeMedida: TEdit
+      Left = 144
+      Top = 51
+      Width = 121
+      Height = 21
+      TabOrder = 3
     end
   end
   object frxPDFExport1: TfrxPDFExport
@@ -86,14 +100,27 @@ object frmRelProdutos: TfrmRelProdutos
     Connection = dmPedidos.fdConexao
     SQL.Strings = (
       
-        'Select ID_PRODUTO,  DESCRICAO, IDUNIDADE_MEDIDA FROM PRODUTO WHE' +
-        'RE (DESCRICAO LIKE :DESCRICAO) OR (COALESCE(:DESCRICAO, '#39#39') = '#39#39 +
-        ')')
+        'Select PRODUTO.ID_PRODUTO,  PRODUTO.DESCRICAO, UNIDADE_MEDIDA.DE' +
+        'SCRICAO UNIMEDIDA '
+      'FROM PRODUTO'
+      
+        'LEFT JOIN UNIDADE_MEDIDA ON PRODUTO.IDUNIDADE_MEDIDA = UNIDADE_M' +
+        'EDIDA.ID_UNIDADE'
+      
+        'WHERE (PRODUTO.DESCRICAO LIKE :DESCRICAO) OR (COALESCE(:DESCRICA' +
+        'O, '#39#39') = '#39#39') AND ((UNIDADE_MEDIDA.DESCRICAO LIKE :UNIMEDIDA) OR ' +
+        '(COALESCE(:UNIMEDIDA , '#39#39') = '#39#39'))')
     Left = 216
     Top = 216
     ParamData = <
       item
         Name = 'DESCRICAO'
+        DataType = ftString
+        ParamType = ptInput
+        Value = ''
+      end
+      item
+        Name = 'UNIMEDIDA'
         DataType = ftString
         ParamType = ptInput
         Value = ''
@@ -116,7 +143,7 @@ object frmRelProdutos: TfrmRelProdutos
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44937.899880601800000000
-    ReportOptions.LastChange = 44937.903757592590000000
+    ReportOptions.LastChange = 44938.805954722220000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -219,7 +246,7 @@ object frmRelProdutos: TfrmRelProdutos
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'ID Un. Medida')
+            'Un. Medida')
           ParentFont = False
         end
       end
@@ -260,19 +287,19 @@ object frmRelProdutos: TfrmRelProdutos
           Memo.UTF8W = (
             '[frxDBDataset1."DESCRICAO"]')
         end
-        object frxDBDataset1IDUNIDADE_MEDIDA: TfrxMemoView
+        object frxDBDataset1UNIMEDIDA: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
           Left = 306.141930000000000000
           Top = 34.015770000000000000
-          Width = 136.063080000000000000
+          Width = 400.630180000000000000
           Height = 18.897650000000000000
-          DataField = 'IDUNIDADE_MEDIDA'
+          DataField = 'UNIMEDIDA'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
           Frame.Typ = []
           Memo.UTF8W = (
-            '[frxDBDataset1."IDUNIDADE_MEDIDA"]')
+            '[frxDBDataset1."UNIMEDIDA"]')
         end
       end
     end

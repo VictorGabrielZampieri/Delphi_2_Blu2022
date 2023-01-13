@@ -21,6 +21,8 @@ type
     FDQuery1: TFDQuery;
     frxDBDataset1: TfrxDBDataset;
     frxReport1: TfrxReport;
+    Label2: TLabel;
+    edtUnidadeMedida: TEdit;
     procedure btnVisualizarClick(Sender: TObject);
     procedure btnExportarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -73,8 +75,13 @@ procedure TfrmRelProdutos.PrepararFiltro;
 begin
   FDQuery1.Close;
   FDQuery1.ParamByName('DESCRICAO').AsString := '';
+  FDQuery1.ParamByName('UNIMEDIDA').AsString := '';
+
   if (Trim(edtDescricaoProduto.Text) <> EmptyStr) then
     FDQuery1.ParamByName('DESCRICAO').AsString := '%' + Trim(edtDescricaoProduto.Text) + '%';
+
+   if (Trim(edtUnidadeMedida.Text) <> EmptyStr) then
+    FDQuery1.ParamByName('UNIMEDIDA').AsString := '%' + Trim(edtUnidadeMedida.Text) + '%';
   FDQuery1.Open;
 
 end;

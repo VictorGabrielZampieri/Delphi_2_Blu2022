@@ -12,7 +12,8 @@ uses
   UfrmRelUnidadeMedida in 'UfrmRelUnidadeMedida.pas' {frmRelUnidadeMedida},
   URelCompradores in 'URelCompradores.pas' {frmRelCompradores},
   UfrmRelProdutos in 'UfrmRelProdutos.pas' {frmRelProdutos},
-  UfrmRelFornecedores in 'UfrmRelFornecedores.pas' {frmRelFornecedores};
+  UfrmRelFornecedores in 'UfrmRelFornecedores.pas' {frmRelFornecedores},
+  UfrmRelPedidos in 'UfrmRelPedidos.pas' {frmRelPedidos};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(TfrmRelCompradores, frmRelCompradores);
   Application.CreateForm(TfrmRelProdutos, frmRelProdutos);
   Application.CreateForm(TfrmRelFornecedores, frmRelFornecedores);
+  Application.CreateForm(TfrmRelPedidos, frmRelPedidos);
   Application.Run;
 end.

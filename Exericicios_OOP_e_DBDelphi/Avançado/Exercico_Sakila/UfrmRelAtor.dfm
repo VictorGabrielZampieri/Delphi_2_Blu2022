@@ -1,8 +1,8 @@
-object frmRelFornecedores: TfrmRelFornecedores
+object frmRelAtor: TfrmRelAtor
   Left = 0
   Top = 0
-  Caption = 'Relat'#243'rio - Fornecedores'
-  ClientHeight = 281
+  Caption = 'frmRelAtor'
+  ClientHeight = 252
   ClientWidth = 418
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,87 +11,51 @@ object frmRelFornecedores: TfrmRelFornecedores
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
-    Left = 40
+    Left = 64
     Top = 32
-    Width = 305
-    Height = 129
-    Caption = 'Fornecedores'
+    Width = 265
+    Height = 121
+    Caption = 'Atores'
     TabOrder = 0
     object Label1: TLabel
       Left = 24
-      Top = 32
-      Width = 27
+      Top = 21
+      Width = 54
       Height = 13
-      Caption = 'Nome'
+      Caption = 'Sobrenome'
     end
-    object edtNomeFornecedores: TEdit
+    object edtNome: TEdit
       Left = 24
-      Top = 51
-      Width = 257
+      Top = 40
+      Width = 145
       Height = 21
       TabOrder = 0
     end
     object btnVisualizar: TButton
-      Left = 208
-      Top = 88
+      Left = 174
+      Top = 77
       Width = 75
       Height = 25
       Caption = 'Visualizar'
       TabOrder = 1
-      OnClick = btnVisualizarClick
     end
-    object btnExportar: TButton
-      Left = 127
-      Top = 88
-      Width = 75
-      Height = 25
-      Caption = 'Exportar'
-      TabOrder = 2
-      OnClick = btnExportarClick
-    end
-  end
-  object frxPDFExport1: TfrxPDFExport
-    UseFileCache = True
-    ShowProgress = True
-    OverwritePrompt = False
-    DataOnly = False
-    OpenAfterExport = False
-    PrintOptimized = False
-    Outline = False
-    Background = False
-    HTMLTags = True
-    Quality = 95
-    Transparency = False
-    Author = 'FastReport'
-    Subject = 'FastReport PDF export'
-    ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
-    HideToolbar = False
-    HideMenubar = False
-    HideWindowUI = False
-    FitWindow = False
-    CenterWindow = False
-    PrintScaling = False
-    PdfA = False
-    PDFStandard = psNone
-    PDFVersion = pv17
-    Left = 336
-    Top = 216
   end
   object FDQuery1: TFDQuery
-    Connection = dmPedidos.fdConexao
+    Active = True
+    Connection = frmConecxao.fdConecxao
     SQL.Strings = (
       
-        'Select ID_FORNECEDOR, NOME, CNPJ FROM FORNECEDOR WHERE (NOME LIK' +
-        'E :NOME) OR (COALESCE(:NOME, '#39#39') = '#39#39')')
-    Left = 240
-    Top = 208
+        'SELECT ACTOR.ACTOR_ID, ACTOR.FIRST_NAME, ACTOR.LAST_NAME FROM AC' +
+        'TOR WHERE ( LAST_NAME LIKE :LAST_NAME) OR (COALESCE(:LAST_NAME, ' +
+        #39#39') = '#39#39')')
+    Left = 256
+    Top = 184
     ParamData = <
       item
-        Name = 'NOME'
+        Name = 'LAST_NAME'
         DataType = ftString
         ParamType = ptInput
         Value = ''
@@ -102,8 +66,8 @@ object frmRelFornecedores: TfrmRelFornecedores
     CloseDataSource = False
     DataSet = FDQuery1
     BCDToCurrency = False
-    Left = 160
-    Top = 216
+    Left = 168
+    Top = 192
   end
   object frxReport1: TfrxReport
     Version = '6.7'
@@ -113,15 +77,15 @@ object frmRelFornecedores: TfrmRelFornecedores
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 44937.908861921300000000
-    ReportOptions.LastChange = 44937.908861921300000000
+    ReportOptions.CreateDate = 44938.908414571800000000
+    ReportOptions.LastChange = 44938.913619525460000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
       ''
       'end.')
-    Left = 40
-    Top = 216
+    Left = 48
+    Top = 184
     Datasets = <
       item
         DataSet = frxDBDataset1
@@ -146,15 +110,15 @@ object frmRelFornecedores: TfrmRelFornecedores
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []
-        Height = 86.929190000000000000
+        Height = 52.913420000000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           AllowVectorExport = True
-          Left = 164.409555000000000000
-          Top = 24.566945000000000000
-          Width = 389.291590000000000000
-          Height = 37.795300000000000000
+          Left = 207.874150000000000000
+          Top = 11.338590000000000000
+          Width = 302.362400000000000000
+          Height = 30.236240000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -27
@@ -162,115 +126,97 @@ object frmRelFornecedores: TfrmRelFornecedores
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Relat'#243'rio dos Fornecedores')
+            'Relat'#243'rio dos Atores')
           ParentFont = False
         end
       end
-      object PageHeader1: TfrxPageHeader
+      object Header1: TfrxHeader
         FillType = ftBrush
         Frame.Typ = []
-        Height = 68.031540000000000000
-        Top = 128.504020000000000000
+        Height = 34.015770000000000000
+        Top = 132.283550000000000000
         Width = 718.110700000000000000
         object Memo2: TfrxMemoView
           AllowVectorExport = True
           Left = 26.456710000000000000
-          Top = 15.118120000000000000
+          Top = 7.559060000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
             'ID')
-          ParentFont = False
         end
         object Memo3: TfrxMemoView
           AllowVectorExport = True
-          Left = 185.196970000000000000
-          Top = 15.118120000000000000
+          Left = 166.299320000000000000
+          Top = 7.559060000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Nome')
-          ParentFont = False
+            'Primeiro Nome')
         end
         object Memo4: TfrxMemoView
           AllowVectorExport = True
-          Left = 351.496290000000000000
-          Top = 15.118120000000000000
+          Left = 313.700990000000000000
+          Top = 7.559060000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'CNPJ')
-          ParentFont = False
+            'Ultimos Nome')
         end
       end
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Frame.Typ = []
-        Height = 75.590600000000000000
-        Top = 257.008040000000000000
+        Height = 56.692950000000000000
+        Top = 188.976500000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
         RowCount = 0
-        object frxDBDataset1ID_FORNECEDOR: TfrxMemoView
+        object frxDBDataset1ACTOR_ID: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
           Left = 26.456710000000000000
-          Top = 30.236240000000000000
+          Top = 18.897650000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          DataField = 'ID_FORNECEDOR'
+          DataField = 'ACTOR_ID'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
           Frame.Typ = []
           Memo.UTF8W = (
-            '[frxDBDataset1."ID_FORNECEDOR"]')
+            '[frxDBDataset1."ACTOR_ID"]')
         end
-        object frxDBDataset1NOME: TfrxMemoView
+        object frxDBDataset1FIRST_NAME: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 185.196970000000000000
-          Top = 30.236240000000000000
-          Width = 158.740260000000000000
+          Left = 166.299320000000000000
+          Top = 15.118120000000000000
+          Width = 139.842610000000000000
           Height = 18.897650000000000000
-          DataField = 'NOME'
+          DataField = 'FIRST_NAME'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
           Frame.Typ = []
           Memo.UTF8W = (
-            '[frxDBDataset1."NOME"]')
+            '[frxDBDataset1."FIRST_NAME"]')
         end
-        object frxDBDataset1CNPJ: TfrxMemoView
+        object frxDBDataset1LAST_NAME: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 351.496290000000000000
-          Top = 30.236240000000000000
-          Width = 113.385900000000000000
+          Left = 313.700990000000000000
+          Top = 15.118120000000000000
+          Width = 359.055350000000000000
           Height = 18.897650000000000000
-          DataField = 'CNPJ'
+          DataField = 'LAST_NAME'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
           Frame.Typ = []
           Memo.UTF8W = (
-            '[frxDBDataset1."CNPJ"]')
+            '[frxDBDataset1."LAST_NAME"]')
         end
       end
     end
