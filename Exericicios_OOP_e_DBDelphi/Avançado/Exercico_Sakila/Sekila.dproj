@@ -113,7 +113,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UfrmRelCidade.pas">
-            <Form>Form1</Form>
+            <Form>frmRelCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UfrmRelActorFilms.pas">
+            <Form>frmRelActorFilm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

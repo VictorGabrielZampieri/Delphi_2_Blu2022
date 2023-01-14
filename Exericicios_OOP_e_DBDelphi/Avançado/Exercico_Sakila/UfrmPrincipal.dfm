@@ -29,6 +29,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object Exercicio022: TMenuItem
         Caption = 'Exercicio 03'
+        OnClick = Exercicio022Click
       end
     end
   end

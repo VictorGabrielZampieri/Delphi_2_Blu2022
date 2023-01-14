@@ -5,7 +5,8 @@ uses
   UfrmPrincipal in 'UfrmPrincipal.pas' {frmPrincipal},
   UdmSekila in 'UdmSekila.pas' {frmConecxao},
   UfrmRelAtor in 'UfrmRelAtor.pas' {frmRelAtor},
-  UfrmRelCidade in 'UfrmRelCidade.pas' {Form1};
+  UfrmRelCidade in 'UfrmRelCidade.pas' {frmRelCidade},
+  UfrmRelActorFilms in 'UfrmRelActorFilms.pas' {frmRelActorFilm};
 
 {$R *.res}
 
@@ -14,6 +15,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TfrmConecxao, frmConecxao);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmRelActorFilm, frmRelActorFilm);
   Application.Run;
 end.
