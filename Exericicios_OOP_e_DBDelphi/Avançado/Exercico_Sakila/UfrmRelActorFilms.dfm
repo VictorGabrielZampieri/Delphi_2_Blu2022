@@ -46,6 +46,7 @@ object frmRelActorFilm: TfrmRelActorFilm
     end
   end
   object QryAtor: TFDQuery
+    Active = True
     Connection = frmConecxao.fdConecxao
     SQL.Strings = (
       
@@ -84,7 +85,7 @@ object frmRelActorFilm: TfrmRelActorFilm
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 44939.869655219900000000
-    ReportOptions.LastChange = 44939.907347349540000000
+    ReportOptions.LastChange = 44939.912467106480000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -154,13 +155,13 @@ object frmRelActorFilm: TfrmRelActorFilm
         end
         object Memo3: TfrxMemoView
           AllowVectorExport = True
-          Left = 181.417440000000000000
-          Top = 18.897650000000000000
+          Left = 317.480520000000000000
+          Top = 22.677180000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
-            'Nome Ator')
+            'Sobrenome')
         end
         object Memo4: TfrxMemoView
           AllowVectorExport = True
@@ -171,6 +172,16 @@ object frmRelActorFilm: TfrmRelActorFilm
           Frame.Typ = []
           Memo.UTF8W = (
             'Quantidade')
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 177.637910000000000000
+          Top = 22.677180000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Nome')
         end
       end
       object MasterData1: TfrxMasterData
@@ -186,7 +197,7 @@ object frmRelActorFilm: TfrmRelActorFilm
           IndexTag = 1
           AllowVectorExport = True
           Left = 464.882190000000000000
-          Top = 22.677180000000000000
+          Top = 15.118120000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           DataField = 'Qnt'
@@ -199,9 +210,9 @@ object frmRelActorFilm: TfrmRelActorFilm
         object frxDBDataset1NOME: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 181.417440000000000000
-          Top = 22.677180000000000000
-          Width = 359.055350000000000000
+          Left = 317.480520000000000000
+          Top = 18.897650000000000000
+          Width = 120.944960000000000000
           Height = 18.897650000000000000
           DataField = 'NOME'
           DataSet = frxDBDataset1
@@ -223,6 +234,56 @@ object frmRelActorFilm: TfrmRelActorFilm
           Frame.Typ = []
           Memo.UTF8W = (
             '[frxDBDataset1."CODIGO"]')
+        end
+        object frxDBDataset1FIRST_NAME: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 177.637910000000000000
+          Top = 18.897650000000000000
+          Width = 132.283550000000000000
+          Height = 18.897650000000000000
+          DataField = 'FIRST_NAME'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."FIRST_NAME"]')
+        end
+      end
+      object ReportSummary1: TfrxReportSummary
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 45.354360000000000000
+        Top = 404.409710000000000000
+        Width = 718.110700000000000000
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 491.338900000000000000
+          Top = 15.118120000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[SUM(<frxDBDataset1."Qnt">,MasterData1)]')
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 374.173470000000000000
+          Top = 7.559060000000000000
+          Width = 253.228510000000000000
+          Color = clBlack
+          Frame.Typ = []
+          Diagonal = True
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 377.953000000000000000
+          Top = 15.118120000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Total:')
         end
       end
     end
