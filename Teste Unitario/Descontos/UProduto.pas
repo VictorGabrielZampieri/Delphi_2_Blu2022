@@ -61,12 +61,12 @@ begin
   else if (FQuantidade >= 11) and ( FQuantidade <= 50) then
   begin
     xValor_Total := (Preco_Unitario*Quantidade);
-    xValor_Total := (10*xValor_Total/100);
+    xValor_Total := xValor_Total-(10*xValor_Total/100);
   end
   else if (FQuantidade > 50)  then
   begin
     xValor_Total := (Preco_Unitario*Quantidade);
-    xValor_Total := (25*xValor_Total/100);
+    xValor_Total := xValor_Total-(25*xValor_Total/100);
   end;
   FValor_Total := xValor_Total;
   Result := xValor_Total;

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BB8E3049-F6CA-4390-BEA6-AB7CEC3E819E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Calculador_Teste_unitario.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\Calculador_Teste_unitarioTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Calculador_Teste_unitario">
+        <MSBuild Projects="Calculador_Teste_unitario.dproj"/>
+    </Target>
+    <Target Name="Calculador_Teste_unitario:Clean">
+        <MSBuild Projects="Calculador_Teste_unitario.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Calculador_Teste_unitario:Make">
+        <MSBuild Projects="Calculador_Teste_unitario.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Calculador_Teste_unitarioTests">
+        <MSBuild Projects="Test\Calculador_Teste_unitarioTests.dproj"/>
+    </Target>
+    <Target Name="Calculador_Teste_unitarioTests:Clean">
+        <MSBuild Projects="Test\Calculador_Teste_unitarioTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Calculador_Teste_unitarioTests:Make">
+        <MSBuild Projects="Test\Calculador_Teste_unitarioTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Calculador_Teste_unitario;Calculador_Teste_unitarioTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Calculador_Teste_unitario:Clean;Calculador_Teste_unitarioTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Calculador_Teste_unitario:Make;Calculador_Teste_unitarioTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
