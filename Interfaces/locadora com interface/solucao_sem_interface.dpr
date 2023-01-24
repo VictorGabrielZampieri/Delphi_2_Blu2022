@@ -10,7 +10,9 @@ uses
   UCarRental in 'model\entities\UCarRental.pas',
   UInvoice in 'model\entities\UInvoice.pas',
   UBrazilTaxService in 'model\services\UBrazilTaxService.pas',
-  URentalService in 'model\services\URentalService.pas';
+  URentalService in 'model\services\URentalService.pas',
+  UTaxService in 'model\services\UTaxService.pas',
+  UUSATaxService in 'model\services\UUSATaxService.pas';
 
 var
   xCarModel: String;
@@ -44,7 +46,8 @@ begin
     Readln(xStrPricePerDay);
     xPricePerDay := StrToFloatDef(xStrPricePerDay,0);
 
-    xRentalService := TRentalService.Create(xPricePerDay, xPrincePerHour, TBrazilTaxService.Create);
+    //xRentalService := TRentalService.Create(xPricePerDay, xPrincePerHour, TBrazilTaxService.Create);
+    xRentalService := TRentalService.Create(xPricePerDay, xPrincePerHour, TUSATaxService.Create);
     xRentalService.ProcessInvoice(xCarRental);
 
     Writeln('Fatura:');

@@ -73,7 +73,7 @@
         <DCC_F>false</DCC_F>
         <DCC_K>false</DCC_K>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
-        <SanitizedProjectName>solucao_sem_interface</SanitizedProjectName>
+        <SanitizedProjectName>solucao_com_interface</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;FireDAC;bindcompfmx;FireDACSqliteDriver;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;xmlrtl;soapmidas;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;FireDACCommon;IndyIPClient;Skia.Package.RTL;RESTBackendComponents;soapserver;dbxcds;Skia.Package.FMX;bindengine;CloudService;dsnapxml;dbrtl;IndyProtocols;FireDACCommonDriver;inet;$(DCC_UsePackage)</DCC_UsePackage>
@@ -165,7 +165,10 @@
         <DCCReference Include="model\entities\UInvoice.pas"/>
         <DCCReference Include="model\services\UBrazilTaxService.pas"/>
         <DCCReference Include="model\services\URentalService.pas"/>
+        <DCCReference Include="model\services\UTaxService.pas"/>
+        <DCCReference Include="model\services\UUSATaxService.pas"/>
         <None Include="ModelSupport_solucao_sem_interface\default.txaPackage"/>
+        <None Include="ModelSupport_solucao_com_interface\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -203,6 +206,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_solucao_com_interface\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_solucao_sem_interface\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
@@ -211,7 +220,7 @@
                 </DeployFile>
                 <DeployFile LocalName="Win32\Debug\solucao_sem_interface.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>solucao_sem_interface.exe</RemoteName>
+                        <RemoteName>solucao_com_interface.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
