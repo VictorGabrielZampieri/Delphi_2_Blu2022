@@ -28,33 +28,40 @@ var
 
 implementation
 
+uses
+  UInterface, UDell, UApple;
+
 {$R *.dfm}
 
 procedure TfrmPrincipal.btn_exibirClick(Sender: TObject);
+var
+  xMarca: IFactoryMarca;
+  xNotebook: INoteBook;
+  xDesktop: IDesktop;
 begin
-  //Dados do Notebook
+  //Instancia a marca -> unico If da Aplicação
   if (cbx_marcas.Items[cbx_marcas.ItemIndex] = 'Dell') then
   begin
-    lblTamanhoTela.Caption := 'Tela de 14 polegadas';
-    lbl_MemoriaRam.Caption := '3GB DDR3';
+    xMarca := TDell.Create;
   end
   else if (cbx_marcas.Items[cbx_marcas.ItemIndex] = 'Apple') then
   begin
-   lblTamanhoTela.Caption := '11.6 polegadas';
-   lbl_MemoriaRam.Caption := '4GB DDR3';
+   xMarca := TApple.Create;
   end;
 
-  //Dados desktop
-  if (cbx_marcas.Items[cbx_marcas.ItemIndex] = 'Dell') then
-  begin
-    lblProcessador.Caption := 'Intel Core i5';
-    lblTamanhoHD.Caption   := '1 TB';
-  end
-  else if (cbx_marcas.Items[cbx_marcas.ItemIndex] = 'Apple') then
-  begin
-    lblProcessador.Caption := 'Intel Core i7';
-    lblTamanhoHD.Caption   := '500 GB';
-  end;
+  //Consulta (constroi) os objs
+  xNotebook := xMarca.ConsultarNotebook;
+  xDesktop := xMarca.ConsultarDesktop;
+
+  //Exibe os Dados
+  lblTamanhoTela.Caption := xNotebook.BuscarTamanhoTela;
+  lbl_MemoriaRam.Caption := xNotebook.BuscarMemoriaRam;
+
+  lblProcessador.Caption := xDesktop.BuscarNomeProcessador;
+  lblTamanhoHD.Caption   := xDesktop.BuscarTamanhoHD;
+
+  //Detalhe importante como usamos interface para as variaveis
+  //Não precisamos destruir seus objs. O Delphi faz isso por nós
 end;
 
 end.
