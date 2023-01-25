@@ -2,7 +2,11 @@ program Factory_method;
 
 uses
   Vcl.Forms,
-  UfrmPrincipal in 'UfrmPrincipal.pas' {Form1};
+  UfrmPrincipal in 'UfrmPrincipal.pas' {Form1},
+  UTipoPrazo in 'pattern\factoryMethod\UTipoPrazo.pas',
+  UPrazoMensal in 'pattern\factoryMethod\UPrazoMensal.pas',
+  UPrazoAnual in 'pattern\factoryMethod\UPrazoAnual.pas',
+  UFabricaPrazos in 'pattern\factoryMethod\UFabricaPrazos.pas';
 
 {$R *.res}
 

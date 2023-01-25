@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Form1'
   ClientHeight = 490
-  ClientWidth = 624
+  ClientWidth = 553
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object Form1: TForm1
     TextHint = 'Valor Atual'
   end
   object edtQtdParcelas: TEdit
-    Left = 184
+    Left = 160
     Top = 48
     Width = 121
     Height = 21
@@ -30,7 +30,7 @@ object Form1: TForm1
     TextHint = 'Qtd Parcelas'
   end
   object cmbPrazoParcelas: TComboBox
-    Left = 328
+    Left = 287
     Top = 48
     Width = 145
     Height = 21
@@ -41,17 +41,18 @@ object Form1: TForm1
       'Anual')
   end
   object btnGerar: TButton
-    Left = 512
+    Left = 438
     Top = 46
     Width = 97
     Height = 25
-    Caption = 'Gerar a Proje'#231#227'p'
+    Caption = 'Gerar a Proje'#231#227'o'
     TabOrder = 3
+    OnClick = btnGerarClick
   end
   object Memo1: TMemo
     Left = 32
     Top = 96
-    Width = 577
+    Width = 503
     Height = 353
     TabOrder = 4
   end

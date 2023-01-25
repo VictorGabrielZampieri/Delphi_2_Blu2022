@@ -102,6 +102,10 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="pattern\factoryMethod\UTipoPrazo.pas"/>
+        <DCCReference Include="pattern\factoryMethod\UPrazoMensal.pas"/>
+        <DCCReference Include="pattern\factoryMethod\UPrazoAnual.pas"/>
+        <DCCReference Include="pattern\factoryMethod\UFabricaPrazos.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
