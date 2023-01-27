@@ -35,7 +35,6 @@ procedure TForm1.btnGerarClick(Sender: TObject);
 var
   xFabrica: IFactoryMethod;
   xPrazo: ITipoPrazo;
-  xDescricao, xjuros, xprojecao, xtotal: String;
 begin
   xFabrica := TFabricaPrazos.Create;
   xPrazo := xFabrica.ConsultarPrazo(cmbPrazoParcelas.Text);
