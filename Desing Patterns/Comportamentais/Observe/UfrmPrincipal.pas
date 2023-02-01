@@ -5,28 +5,23 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Datasnap.DBClient, Vcl.Grids,
-  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, USubject,
+  System.Generics.Collections, UConcreteObserver_log, UConcreteContetens,
+  UConcreteObserver_Historico, UConcreteObserver_Saldo;
 
 type
   TfrmPrincipal = class(TForm)
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    cmbOperacao: TComboBox;
-    cmbCategoria: TComboBox;
-    edtValor: TEdit;
-    DBGrid1: TDBGrid;
-    ClientDataSet1: TClientDataSet;
-    ClientDataSet1Operacao: TStringField;
-    ClientDataSet1Categoria: TStringField;
-    ClientDataSet1Valor: TCurrencyField;
-    DataSource1: TDataSource;
-    btnGravar: TButton;
-    Shape1: TShape;
+    Frame11: TFrame1;
+    frmSaldo1: TfrmSaldo;
+    frmLog1: TfrmLog;
+    frmHistorico1: TfrmHistorico;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+
   public
     { Public declarations }
+
   end;
 
 var
@@ -34,6 +29,20 @@ var
 
 implementation
 
+uses
+  UNotificacao;
+
 {$R *.dfm}
+
+{ TfrmPrincipal }
+
+
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  Frame11.AdicionarObserver(frmSaldo1);
+  Frame11.AdicionarObserver(frmHistorico1);
+  Frame11.AdicionarObserver(frmLog1);
+end;
 
 end.

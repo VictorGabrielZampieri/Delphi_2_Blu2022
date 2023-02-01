@@ -8,7 +8,8 @@ uses
   UNotificacao in 'pattern\UNotificacao.pas',
   UConcreteObserver_log in 'pattern\UConcreteObserver_log.pas' {frmLog: TFrame},
   UConcreteObserver_Saldo in 'pattern\UConcreteObserver_Saldo.pas' {frmSaldo: TFrame},
-  UConcreteObserver_Historico in 'pattern\UConcreteObserver_Historico.pas' {frmHistorico: TFrame};
+  UConcreteObserver_Historico in 'pattern\UConcreteObserver_Historico.pas' {frmHistorico: TFrame},
+  UConcreteContetens in 'pattern\UConcreteContetens.pas' {Frame1: TFrame};
 
 {$R *.res}
 
