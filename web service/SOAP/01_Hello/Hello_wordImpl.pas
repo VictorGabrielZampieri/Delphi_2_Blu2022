@@ -15,6 +15,7 @@ type
     function echoDoubleArray(const Value: TDoubleArray): TDoubleArray; stdcall;
     function echoMyEmployee(const Value: TMyEmployee): TMyEmployee; stdcall;
     function echoDouble(const Value: Double): Double; stdcall;
+    function echoHelloWord: String; stdcall;
   end;
 
 implementation
@@ -23,6 +24,11 @@ function THello_word.echoEnum(const Value: TEnumTest): TEnumTest; stdcall;
 begin
   { TODO : Implement method echoEnum }
   Result := Value;
+end;
+
+function THello_word.echoHelloWord: String;
+begin
+  Result := 'Hello mundo';
 end;
 
 function THello_word.echoDoubleArray(const Value: TDoubleArray): TDoubleArray; stdcall;
