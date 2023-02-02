@@ -1,6 +1,6 @@
-{ Invokable interface IHello_word }
+{ Invokable interface ICaculadora }
 
-unit Hello_wordIntf;
+unit CaculadoraIntf;
 
 interface
 
@@ -24,22 +24,21 @@ type
   end;
 
   { Invokable interfaces must derive from IInvokable }
-  IHello_word = interface(IInvokable)
-  ['{1B248F8F-768B-4239-A3EE-F7AC291E8755}']
+  ICaculadora = interface(IInvokable)
+  ['{0579A73E-745A-4E98-B797-8C9F093403A1}']
 
     { Methods of Invokable interface must not use the default }
     { calling convention; stdcall is recommended }
-    function echoEnum(const Value: TEnumTest): TEnumTest; stdcall;
-    function echoDoubleArray(const Value: TDoubleArray): TDoubleArray; stdcall;
-    function echoMyEmployee(const Value: TMyEmployee): TMyEmployee; stdcall;
-    function echoDouble(const Value: Double): Double; stdcall;
-    function echoHelloWord: String; stdcall;
+    function echoSomar(const aNum, aNum2: Double): Double; stdcall;
+    function echoSubtrair(const aNum, aNum2: Double): Double; stdcall;
+    function echoDividir(const aNum, aNum2: Double): Double; stdcall;
+    function echoMultiplicar(const aNum, aNum2: Double): Double; stdcall;
   end;
 
 implementation
 
 initialization
   { Invokable interfaces must be registered }
-  InvRegistry.RegisterInterface(TypeInfo(IHello_word));
+  InvRegistry.RegisterInterface(TypeInfo(ICaculadora));
 
 end.
