@@ -22,11 +22,8 @@ type
   private
     { Private declarations }
     procedure Operar;
-    procedure Somar(aNum1, aNum2 : Double);
+    procedure Calcular(aNum1, aNum2 : Double; aOperacao: String);
     procedure TratrarResposta;
-    procedure Subtrair(aNum1, aNum2 : Double);
-    procedure Multiplicar(aNum1, aNum2 : Double);
-    procedure Dividir(aNum1, aNum2 : Double);
   public
     { Public declarations }
      const SUCESSO : Integer = 200;
@@ -58,14 +55,14 @@ begin
 
   case TEnum_Operacoes(cmb_Operacoes.ItemIndex)  of
     opSomar:
-      Self.Somar(xNum1,xNum2);
+      Self.Calcular(xNum1, xNum2, 'somar');
 
 
     opSubtrair:
-       Self.Subtrair(xNum1,xNum2);
+       Self.Calcular(xNum1, xNum2, 'subtrair');
 
     opMultiplicar:
-      Self.Multiplicar(xNum1,xNum2);
+      Self.Calcular(xNum1, xNum2, 'multiplicar');
 
     opDividir:
     begin
@@ -74,35 +71,14 @@ begin
         lbl_Resultado.Caption := 'Não pode divisao por zero';
           raise Exception.Create('Não pode divisao por zero');
        end;
-       Self.Dividir(xNum1,xNum2);
+       Self.Calcular(xNum1, xNum2, 'dividir');
     end;
   end;
 end;
 
-procedure TForm1.Dividir(aNum1, aNum2 : Double);
+procedure TForm1.Calcular(aNum1, aNum2: Double; aOperacao: String);
 begin
-  RESTClient1.BaseURL := 'http://localhost:9090/dividir/'+aNum1.ToString+'/'+aNum2.ToString;
-  RESTRequest1.Execute;
-  Self.TratrarResposta;
-end;
-
-procedure TForm1.Multiplicar(aNum1, aNum2 : Double);
-begin
-  RESTClient1.BaseURL := 'http://localhost:9090/multiplicar/'+aNum1.ToString+'/'+aNum2.ToString;
-  RESTRequest1.Execute;
-  Self.TratrarResposta;
-end;
-
-procedure TForm1.Somar(aNum1, aNum2 : Double);
-begin
-  RESTClient1.BaseURL := 'http://localhost:9090/somar/'+aNum1.ToString+'/'+aNum2.ToString;
-  RESTRequest1.Execute;
-  Self.TratrarResposta;
-end;
-
-procedure TForm1.Subtrair(aNum1, aNum2 : Double);
-begin
-  RESTClient1.BaseURL := 'http://localhost:9090/subtrair/'+aNum1.ToString+'/'+aNum2.ToString;
+  RESTClient1.BaseURL := 'http://localhost:9090/'+aOperacao+'/'+aNum1.ToString+'/'+aNum2.ToString;
   RESTRequest1.Execute;
   Self.TratrarResposta;
 end;
