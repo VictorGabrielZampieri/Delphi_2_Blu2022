@@ -1,4 +1,4 @@
-program PSwagger;
+program PSwaggerCargos;
 
 {$APPTYPE CONSOLE}
 
@@ -7,11 +7,10 @@ uses
   Horse.CORS,
   Horse.GBSwagger,
   System.SysUtils,
-  UPessoas in 'Model\entities\UPessoas.pas',
-  UController.Pessoa in 'Model\controllers\UController.Pessoa.pas';
+  UCargos in 'Model\entities\UCargos.pas',
+  UController.Cargos in 'Model\controllers\UController.Cargos.pas';
 
-
-  procedure SwaggerConfig;
+procedure SwaggerConfig;
    begin
       //Programacao funcional
      Swagger
@@ -19,7 +18,7 @@ uses
        .SchemaOnError(TAPIError).
         &End
      .Info.
-         Title('Minha Primeira Api Documentada')
+         Title('Minha Segunda Api Documentada')
         .Description('API Horse')
         .Contact.Name('Victor G. Zampieri')
         .Email('victorgzampieri@gmail.com')
@@ -32,11 +31,11 @@ uses
    procedure Registry;
    begin
    //Versionamento de api - v1
-    THorse.Group.Prefix('v1').Get('/pessoas', TPessoaController.GetPessoas)
-    .Get('/pessoas/:id', TPessoaController.FindUser)
-    .Post('/pessoas', TPessoaController.InsertUser)
-    .Put('/pessoas/:id', TPessoaController.UpdateUser)
-    .Delete('/pessoas/:id', TPessoaController.DeleteUser);
+    THorse.Group.Prefix('v1').Get('/cargos', TCargoController.GetOfficers)
+    .Get('/cargos/:id', TCargoController.FindOfficer)
+    .Post('/cargos', TCargoController.InsertOfficer)
+    .Put('/cargos/:id', TCargoController.UpdateOfficer)
+    .Delete('/cargos/:id', TCargoController.DeleteOfficer);
    end;
 
 begin
@@ -44,7 +43,7 @@ begin
 
   //http://localhost:9090/swagger/doc/html
   SwaggerConfig;
-  THorseGBSwaggerRegister.RegisterPath(TPessoaController);
+  THorseGBSwaggerRegister.RegisterPath(TCargoController);
 
   Registry;
 
