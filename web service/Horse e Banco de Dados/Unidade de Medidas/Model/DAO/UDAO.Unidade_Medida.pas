@@ -1,14 +1,13 @@
-unit UDAO.Produtos;
+unit UDAO.Unidade_Medida;
 
 interface
-
 uses
   UDAO.Intf,
   System.JSON,
   DataSet.Serialize;
 
 type
-  TDAOProdutos = class(TInterfacedObject, IDAO)
+  TDAOUndMedidas = class(TInterfacedObject, IDAO)
      function ObterRegistros: TJSONArray;
      function ProcurarPorId(const aIdentificador: Integer): TJSONObject;
      function AdicionarRegistro(aRegistro: TJSONObject): Boolean;
@@ -22,39 +21,36 @@ uses
   System.SysUtils,
   UUtil.Banco;
 
-{ TDAOProdutos }
+{ TDAOUndMedidas }
 
-function TDAOProdutos.AdicionarRegistro(aRegistro: TJSONObject): Boolean;
+function TDAOUndMedidas.AdicionarRegistro(aRegistro: TJSONObject): Boolean;
 begin
-  try
-    Result := TUtilBanco.AdicionarRegistro('PRODUTOS', aRegistro.ToJSON);
+   try
+    Result := TUtilBanco.AdicionarRegistro('UNIDADEMEDIDA', aRegistro.ToJSON);
   except on E: Exception do
     raise Exception.Create('Erro ao Adicionar Registro: '+e.Message);
-  end;
-
+   end;
 end;
 
-function TDAOProdutos.DeletarRegistro(const aIdentificador: Integer): Boolean;
+function TDAOUndMedidas.DeletarRegistro(const aIdentificador: Integer): Boolean;
 begin
   try
-    Result := TUtilBanco.RemoverRegistro('Produtos', aIdentificador);
+    Result := TUtilBanco.RemoverRegistro('UNIDADEMEDIDA', aIdentificador);
   except on E: Exception do
   raise Exception.Create('Erro ao Remover Registro: '+e.Message);
   end;
-
 end;
 
-function TDAOProdutos.ObterRegistros: TJSONArray;
+function TDAOUndMedidas.ObterRegistros: TJSONArray;
 var
   xQuery : TFDQuery;
 begin
   xQuery := nil;
   try
     try
-      xQuery := TUtilBanco.ExecutarConsulta('SELECT * FROM PRODUTOS');
+      xQuery := TUtilBanco.ExecutarConsulta('SELECT * FROM UNIDADEMEDIDA');
 
       Result := xQuery.ToJSONArray();
-      //ToJSONArray e LoadFromToJSON - DataSet.Serialize
     except on E: Exception do
       raise Exception.Create('Erro ao Obter Registros'+ e.Message);
     end;
@@ -64,7 +60,8 @@ begin
 
 end;
 
-function TDAOProdutos.ProcurarPorId(const aIdentificador: Integer): TJSONObject;
+function TDAOUndMedidas.ProcurarPorId(
+  const aIdentificador: Integer): TJSONObject;
 var
   xQuery: TFDQuery;
 begin
@@ -72,7 +69,7 @@ begin
 
   try
     try
-      xQuery := TUtilBanco.ExecutarConsulta(Format('SELECT * FROM PRODUTOS WHERE ID = %d', [aIdentificador]));
+      xQuery := TUtilBanco.ExecutarConsulta(Format('SELECT * FROM UNIDADEMEDIDA WHERE ID = %d', [aIdentificador]));
       Result := xQuery.ToJSONObject();
     except on E: Exception do
       raise Exception.Create('Erro ao Obter Registros'+ e.Message);

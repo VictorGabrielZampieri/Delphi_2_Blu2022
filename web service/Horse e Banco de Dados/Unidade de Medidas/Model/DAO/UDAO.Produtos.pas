@@ -54,7 +54,6 @@ begin
       xQuery := TUtilBanco.ExecutarConsulta('SELECT * FROM PRODUTOS');
 
       Result := xQuery.ToJSONArray();
-      //ToJSONArray e LoadFromToJSON - DataSet.Serialize
     except on E: Exception do
       raise Exception.Create('Erro ao Obter Registros'+ e.Message);
     end;

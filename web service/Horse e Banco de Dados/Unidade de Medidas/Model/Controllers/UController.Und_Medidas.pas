@@ -1,4 +1,4 @@
-unit UController.Produtos;
+unit UController.Und_Medidas;
 
 interface
 
@@ -6,24 +6,23 @@ uses
   Horse;
 
 type
-  TControllerProdutos = class
+  TControllerUnidades_Medidas = class
     private
     public
-      class procedure GetProdutos(Req: THorseRequest; Res: THorseResponse; Next: TProc);
-      class procedure GetProduto(Req: THorseRequest; Res: THorseResponse; Next: TProc);
-      class procedure PostProduto(Req: THorseRequest; Res: THorseResponse; Next: TProc);
-      class procedure DeleteProduto(Req: THorseRequest; Res: THorseResponse; Next: TProc);
-
+      class procedure GetUndMedida(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+      class procedure GetUndMedidas(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+      class procedure PostUndMedida(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+      class procedure DeleteUndMedida(Req: THorseRequest; Res: THorseResponse; Next: TProc);
   end;
 
 implementation
 
-{ TControllerProdutos }
+{ TControllerUnidades_Medidas }
 
 uses
-  UDAO.Intf, UDAO.Produtos, System.JSON, System.SysUtils;
+  UDAO.Intf, UDAO.Unidade_Medida, System.JSON, System.SysUtils;
 
-class procedure TControllerProdutos.DeleteProduto(Req: THorseRequest;
+class procedure TControllerUnidades_Medidas.DeleteUndMedida(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
 var
   xDAO : IDAO;
@@ -37,7 +36,7 @@ begin
 
   xId := StrToIntDef(Req.Params.Items['id'], 0);
 
-  xDAO := TDAOProdutos.Create;
+  xDAO := TDAOUndMedidas.Create;
 
   if (xDAO.DeletarRegistro(xId)) then
     Res.Status(THTTPStatus.NoContent)
@@ -45,7 +44,7 @@ begin
     Res.Status(THTTPStatus.InternalServerError);
 end;
 
-class procedure TControllerProdutos.GetProduto(Req: THorseRequest;
+class procedure TControllerUnidades_Medidas.GetUndMedidas(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
 var
   xDAO : IDAO;
@@ -59,30 +58,33 @@ begin
 
   xId := StrToIntDef(Req.Params.Items['id'], 0);
 
-  xDAO := TDAOProdutos.Create;
+  xDAO := TDAOUndMedidas.Create;
 
   Res.Send<TJSONObject> (xDAO.ProcurarPorId(xId));
+
 end;
 
-class procedure TControllerProdutos.GetProdutos(Req: THorseRequest;
+class procedure TControllerUnidades_Medidas.GetUndMedida(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
 var
   xDAO : IDAO;
 begin
-  xDAO := TDAOProdutos.Create;
+  xDAO := TDAOUndMedidas.Create;
 
   Res.Send<TJSONArray> (xDAO.ObterRegistros);
+
 end;
 
-class procedure TControllerProdutos.PostProduto(Req: THorseRequest;
+class procedure TControllerUnidades_Medidas.PostUndMedida(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
 var
   xDAO : IDAO;
 begin
-  xDAO := TDAOProdutos.Create;
+  xDAO := TDAOUndMedidas.Create;
 
   if (xDAO.AdicionarRegistro(Req.Body<TJSONObject>)) then
     Res.Status(THTTPStatus.Created);
+
 end;
 
 end.

@@ -41,7 +41,6 @@ begin
   try
     try
       xMemTable.LoadFromJSON(aJSON);
-      //ToJSONArray e LoadFromToJSON - DataSet.Serialize
 
       for I := 0 to Pred(xMemTable.FieldCount)do
         begin
